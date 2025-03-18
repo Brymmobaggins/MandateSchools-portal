@@ -1,0 +1,25 @@
+/** @format */
+
+@import "tailwindcss";
+
+/*@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap'); */
+
+body {
+  font-family: "Roboto", Monospace;
+  background-color: black;
+  color: white;
+}
+nav ul li {
+  /* border: 2px solid white; */
+  padding: 10px;
+  border-radius: 4px;
+}
+nav ul {
+  display: flex;
+  justify-content: space-around;
+}
+nav ul li:hover{
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
