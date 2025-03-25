@@ -1,6 +1,6 @@
 /** @format */
 
-import React from "react";
+;
 
 export default function SignUpPage() {
   return (
@@ -18,7 +18,7 @@ export default function SignUpPage() {
       <div>
         <label>Email</label>
         <input type="Email" value="" />  
-        
+ 
       </div>
       <div className="">
         <label htmlFor="">Password</label> 

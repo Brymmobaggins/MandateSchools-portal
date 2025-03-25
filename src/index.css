@@ -4,22 +4,23 @@
 
 /*@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap'); */
 
+
 body {
-  font-family: "Roboto", Monospace;
-  background-color: black;
+  font-family: "Comic Neue", 'cursive';
+  background-color: #303030;
   color: white;
+
 }
 nav ul li {
-  /* border: 2px solid white; */
-  padding: 10px;
+  padding: 8px;
   border-radius: 4px;
 }
-nav ul {
+
+#footer-container{
   display: flex;
-  justify-content: space-around;
-}
-nav ul li:hover{
-  color: white;
-  text-decoration: none;
-  cursor: pointer;
+  justify-content: space-between;
+  border:1px solid white;
+  width: 85%;
+  margin: 0 auto;
+  padding: 5px 10px;
 }
