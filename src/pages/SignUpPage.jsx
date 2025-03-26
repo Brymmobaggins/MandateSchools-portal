@@ -7,7 +7,7 @@ export default function SignUpPage() {
     <>
       <div>EduConvert</div>
       <div>Create New Account</div>
-      <div>
+      <div> 
         <button>FaceBook</button>
         <button>Google</button>
       </div>
