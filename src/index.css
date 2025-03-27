@@ -2,24 +2,34 @@
 
 @import "tailwindcss";
 
-/*@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap'); */
 
+:root {
+  --font-Comic: "Comic Neue", "cursive";
+  --bg-color: #001f3f;
+}
 
 body {
-  font-family: "Comic Neue", 'cursive';
-  background-color: #303030;
+  font-family: var(--font-Comic);
+  background-color: var(--bg-color);
   color: white;
-
 }
-nav ul li {
-  padding: 8px;
+input {
+  width: 100%;
+  font-size: 18px;
+  border: 0.5px solid #080808;
+  padding: 0.75rem;
+  margin: 5px;
   border-radius: 4px;
+  outline: none;
+}
+::placeholder {
+  color: #a7a7a7;
 }
 
-#footer-container{
+#footer-container {
   display: flex;
   justify-content: space-between;
-  border:1px solid white;
+  border: 1px solid white;
   width: 85%;
   margin: 0 auto;
   padding: 5px 10px;

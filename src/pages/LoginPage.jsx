@@ -3,13 +3,13 @@
 export default function LoginPage() {
   return (
     <>
-      <section className="flex min-h-[100vh] p-[80px] ">
+      <section className="flex min-h-[100vh]  ">
         {/* Left Column */}
         <div
-          className="flex-6 flex-col justify-center p-[60px] border"
+          className="flex-6 flex-col justify-center border p-[80px] bg-white text-black"
           id="left-column"
         >
-          <h1 className="text-center text-4xl font-bold">EduConvert</h1>
+          <h1 className="text-center text-5xl font-bold">EduConvert</h1>
           <div className="text-center text-3xl font-bold my-5">
             Login to your account
           </div>
@@ -22,30 +22,35 @@ export default function LoginPage() {
             <a href="">SS0</a>
           </div>
           <div>
-            <input type="Email" value="" placeholder="Enter your email" />
+            <input type="Email" placeholder="Enter your email" />
           </div>
           <div>
-            <input type="password" value="" placeholder="Password" />
+            <input type="password" placeholder="Password" />
           </div>
 
           <p className="text-center mt-3">
-            <a href="" className="">
+            <a href="" className="underline decoration-red-500 text-red-500 font-bold">
               Forgot Password?
             </a>
           </p>
           <div className="text-center mt-3 cursor-pointer">
-            <button className="border font-bold rounded px-5 py-1.5 bg-[#ff851b]">
+            <button className="border lg:text font-bold outline-0 rounded px-5 py-1.5 bg-[#ff851b]">
               Log in
             </button>
           </div>
 
           <p className="text-center mt-3">
-            Dont have an account? <a href="">Create an account</a>
+            Dont have an account?{" "}
+            <a
+              href=""
+              className="underline decoration-red-500 text-red-500 font-bold"
+            >
+              Create an account
+            </a>
           </p>
         </div>
         <div></div>
         <div className="flex-4 flex-col justify-center p-[60px] border">
-
           {/* right column */}
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo quos
           qui possimus magnam velit? Nesciunt consequuntur aperiam impedit
