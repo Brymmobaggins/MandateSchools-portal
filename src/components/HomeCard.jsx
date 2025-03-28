@@ -1,14 +1,13 @@
-import React from 'react'
+/** @format */
 
 export default function HomeCard() {
   return (
     <>
-    <section>
+      <section>
         <div className="">firstcards</div>
         <div className="">Second cards</div>
         <div className="">firstcards</div>
-
-    </section>
+      </section>
     </>
-  )
+  );
 }

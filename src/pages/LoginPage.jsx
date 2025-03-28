@@ -9,7 +9,7 @@ export default function LoginPage() {
           className="flex-6 flex-col justify-center border p-[80px] bg-white text-black"
           id="left-column"
         >
-          <h1 className="text-center text-5xl font-bold">EduConvert</h1>
+          <h1 className="text-center text-5xl font-bold">ConvertZilla</h1>
           <div className="text-center text-3xl font-bold my-5">
             Login to your account
           </div>

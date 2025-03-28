@@ -8,8 +8,8 @@ export default function UpLoadSection() {
   return (
     <>
       <div className="border text-center w-[85%] m-auto" id="page-container">
-        <h1 className="text-4xl font-bold">PDF to WORD Converter</h1>
-        <p className="border mt-2">Convert your PDF to word seamlessly.</p>
+        <h1 className="text-4xl font-bold">ConvertZilla</h1>
+        <p className="border mt-2">Big, powerful, and hungry for file conversions! 🦖</p>
       </div>
 
       <div>
