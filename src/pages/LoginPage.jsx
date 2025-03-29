@@ -34,7 +34,7 @@ export default function LoginPage() {
             </a>
           </p>
           <div className="text-center mt-3 cursor-pointer">
-            <button className="border lg:text font-bold outline-0 rounded px-5 py-1.5 bg-[#ff851b]">
+            <button className="text-[var(--color-dark-blue)] bg-[var(--color-neon-green)] hover:bg-[var(--color-neon-green-500)] font-bold cursor-pointer outline-0 rounded px-5 py-1.5">
               Log in
             </button>
           </div>
@@ -43,7 +43,7 @@ export default function LoginPage() {
             Dont have an account?{" "}
             <a
               href=""
-              className="underline decoration-red-500 text-red-500 font-bold"
+              className="underline decoration-[var(--danger-color)] text-[var(--danger-color)] font-bold"
             >
               Create an account
             </a>

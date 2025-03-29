@@ -1,23 +1,48 @@
 /** @format */
 
 @import "tailwindcss";
+/** @format */
+
+/* ark Blue (#0A192F) → Use as the main background color.
+Neon Green (#00FF7F) → Use for buttons, highlights, and key accents.
+Deep Gray (#1C1F26) → Use for card backgrounds, modals, and subtle elements.
+Light Gray (#E0E0E0) → Use for text and soft UI elements.
+Electric Cyan (#00E5FF) (optional) → Can be used as a secondary highlight for animations or hover effects. */
 
 
 :root {
+
+ /* Primary Colors */
+  --color-dark-blue: #0a192f; /* Background & UI Base */
+  --color-neon-green: #00ff7f; /* Highlights & Accents */
+  --color-neon-green-500: #00E56C; /* Button & Link Hover */
+
+  /* UI Elements */
+  --danger-color: #ff4d4d; /* Error Messages & Alerts */
+  --accept-color: #4caf50; /* Success Messages & Alerts */
+  --warning-color: #ff9800; /* Warning Messages & Alerts */
+  --info-color: #2196f3; /* Info Messages & Alerts */
+
+  /* Secondary Colors */
+  --color-deep-gray: #1c1f26; /* Text & Borders */
+  --color-light-gray: #e0e0e0; /* Soft UI Elements */
+  --color-electric-cyan: #00e5ff; /* Optional Accent */
+
+  /* Font Families */
   --font-Comic: "Comic Neue", "cursive";
-  --bg-color: #001f3f;
 }
 
 body {
-  font-family: var(--font-Comic);
-  background-color: var(--bg-color);
-  color: white;
+  font-family: "Comic Neue", cursive;
+  background-color: var(--color-dark-blue);
+  color: var(--color-light-gray);
 }
+
 input {
   width: 100%;
   font-size: 18px;
   border: 0.5px solid #080808;
-  padding: 0.75rem;
+  padding: 0.5rem 0.75rem;
   margin: 5px;
   border-radius: 4px;
   outline: none;
