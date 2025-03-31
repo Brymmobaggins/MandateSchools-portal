@@ -14,7 +14,7 @@ export default function Navbar() {
             Login
           </Link>
           <Link
-            className="font-bold text-dark-blue bg-neon-green hover:neon-green-500 cursor-pointer rounded p-2"
+            className="font-bold text-[var(--color-dark-blue)] bg-[var(--color-neon-green)] hover:bg-[var(--color-neon-green-500)] cursor-pointer rounded p-2"
             to="/signup"
           >
             Sign Up

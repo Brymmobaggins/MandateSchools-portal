@@ -47,6 +47,9 @@ input {
   border-radius: 4px;
   outline: none;
 }
+h1{
+  font-weight: 700;
+}
 ::placeholder {
   color: #a7a7a7;
 }

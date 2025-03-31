@@ -29,7 +29,10 @@ export default function LoginPage() {
           </div>
 
           <p className="text-center mt-3">
-            <a href="" className="underline decoration-red-500 text-red-500 font-bold">
+            <a
+              href=""
+              className="underline decoration-[var(--danger-color)] text-[var(--danger-color)] font-bold"
+            >
               Forgot Password?
             </a>
           </p>

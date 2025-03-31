@@ -1,26 +1,46 @@
 /** @format */
 
 export default function UpLoadSection() {
-  const x = 20;
-  const y = 30;
-  const loggedIn = false;
-
   return (
     <>
-      <div className="border text-center w-[85%] m-auto" id="page-container">
-        <h1 className="text-4xl font-bold">ConvertZilla</h1>
-        <p className="border mt-2">Big, powerful, and hungry for file conversions! 🦖</p>
-      </div>
-
-      <div>
-        {" "}
-        The sum of {x} and {y} is {x + y}
-      </div>
-      <ul>
-        ``
-        {}
-      </ul>
-      {loggedIn ? <h1>Welcome bakare</h1> : <h1>Hello Guest</h1>}
+      <section className="flex flex-row justify-between gap-4 m-auto w-[85%] mt-10 p-5 border border-gray-200 rounded-lg shadow-md *:border *:hover:cursor-pointer *:p-5">
+        <div className="duration-300 ease-in" id="first-card">
+          <h1>PDF to Word</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores
+            esse est dignissimos ex deserunt exercitationem voluptatem quas
+            unde. Ut vitae nulla deleniti, iure ea eos veritatis rem beatae
+            velit quidem?
+          </p>
+        </div>
+        <div className="" id="second-card">
+          <h1>Word to PDF</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores
+            esse est dignissimos ex deserunt exercitationem voluptatem quas
+            unde. Ut vitae nulla deleniti, iure ea eos veritatis rem beatae
+            velit quidem?
+          </p>
+        </div>
+        <div className="" id="second-card">
+          <h1>PowerPoint to PDF</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores
+            esse est dignissimos ex deserunt exercitationem voluptatem quas
+            unde. Ut vitae nulla deleniti, iure ea eos veritatis rem beatae
+            velit quidem?
+          </p>
+        </div>
+        <div className="" id="second-card">
+          <h1>PDF to PowerPoint</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores
+            esse est dignissimos ex deserunt exercitationem voluptatem quas
+            unde. Ut vitae nulla deleniti, iure ea eos veritatis rem beatae
+            velit quidem?
+          </p>
+        </div>
+      </section>
     </>
   );
 }
