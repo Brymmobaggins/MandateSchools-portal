@@ -1,0 +1,68 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mandate Admin Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.sstatic.net/Shared/stacks.css" />
+    <link rel="stylesheet" href="css/custom.css" />
+  </head>
+  <body class="bg-black-025">
+    <!-- Top Navigation -->
+    <header class="d-flex ai-center jc-between p16 bg-white bb bc-black-100">
+      <div class="d-flex ai-center g8">
+        <img src="images/logo.png" alt="Logo" style="height: 40px" />
+        <h2 class="m0 fs-headline1 fc-primary">Admin Dashboard</h2>
+      </div>
+      <div>
+        <a href="#" class="s-btn s-btn__muted">Logout</a>
+      </div>
+    </header>
+
+    <!-- Main Layout -->
+    <div class="d-flex">
+      <!-- Sidebar -->
+      <aside class="sidebar p16 bg-white w200 bs-sm">
+        <nav>
+          <ul class="list-reset">
+            <li class="mb8">
+              <a class="s-btn s-btn__muted w100 ta-left" href="#">Dashboard</a>
+            </li>
+            <li class="mb8">
+              <a class="s-btn s-btn__muted w100 ta-left" href="#"
+                >Manage Students</a
+              >
+            </li>
+            <li class="mb8">
+              <a class="s-btn s-btn__muted w100 ta-left" href="#">Admissions</a>
+            </li>
+            <li class="mb8">
+              <a class="s-btn s-btn__muted w100 ta-left" href="#">Results</a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- Dashboard Content -->
+      <main class="p32 w100">
+        <h3 class="mb16">Welcome, Admin</h3>
+        <div class="d-flex g16 fw-wrap">
+          <div class="s-card w100 mw4">
+            <h4 class="mb4">Students</h4>
+            <p class="fs-caption">324 enrolled</p>
+          </div>
+          <div class="s-card w100 mw4">
+            <h4 class="mb4">Pending Applications</h4>
+            <p class="fs-caption">12 awaiting approval</p>
+          </div>
+          <div class="s-card w100 mw4">
+            <h4 class="mb4">New Messages</h4>
+            <p class="fs-caption">5 unread</p>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
