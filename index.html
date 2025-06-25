@@ -8,21 +8,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- Import Stacks CSS -->
     <link rel="stylesheet" href="https://cdn.sstatic.net/Shared/stacks.css" />
-    <link rel="stylesheet" href="css/custom.css" />
+    <link rel="stylesheet" href="/css/custom.css" />
   </head>
   <body class="d-flex jc-center ai-center h-screen bg-black">
-    <div class="s-card ta-center mwx-initial">
-      <h1 class="mb16 fc-primary">Mandate School Portal</h1>
-      <p class="mb24 fs-body2">Please choose your login type to proceed</p>
-
+    <div class="s-card p32 mw6 bg-white ta-center">
+      <h1 class="mb16 fc-dark">Mandate School Portal</h1>
+      <p class="mb24 fs-body2">Please choose your login type</p>
       <div class="d-flex jc-center g16 fw-wrap">
-        <a href="/admin-login-page.html" class="s-btn s-btn__primary"
+        <a href="login.html?role=admin" class="s-btn s-btn__primary"
           >Login as Admin</a
         >
-        <a href="/student-login-page.html" class="s-btn s-btn__muted"
+        <a
+          href="login.html?role=student"
+          class="s-btn s-btn__muted s-btn__outlined"
           >Login as Student</a
         >
       </div>
     </div>
   </body>
+
+  <footer class="ta-right fs-caption mt32 fc-light p8">
+    Mandate School Portal – v1.0.0
+  </footer>
 </html>

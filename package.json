@@ -1,0 +1,24 @@
+{
+  "name": "mandate-portal",
+  "version": "1.0.0",
+  "description": "<!-- @format -->",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Brymmobaggins/MandateSchools-portal.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Brymmobaggins/MandateSchools-portal/issues"
+  },
+  "homepage": "https://github.com/Brymmobaggins/MandateSchools-portal#readme",
+  "dependencies": {
+    "@stackoverflow/stacks-icons": "^6.4.0"
+  }
+}

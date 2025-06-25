@@ -1,4 +1,4 @@
-/** @format */
+
 
 document.addEventListener("DOMContentLoaded", function () {
   const title = document.getElementById("loginTitle");
@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Handle form submit
   form.addEventListener("submit", function (e) {
     e.preventDefault();
+    
     if (role === "admin") {
       window.location.href = "admin-dashboard.html";
     } else {
