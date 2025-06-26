@@ -1,4 +1,5 @@
 # files to ignore
 *.txt
 node_modules
+*.hintrc
 

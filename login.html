@@ -9,34 +9,84 @@
     <!-- Import Stacks CSS -->
     <link rel="stylesheet" href="https://cdn.sstatic.net/Shared/stacks.css" />
     <link rel="stylesheet" href="css/custom.css" />
-  </head>
-  <body class="d-flex jc-center ai-center h-screen bg-black">
-    <div class="s-card mw6 mx-auto p32 bg-white">
-      <h1 class="mb16 fc-dark ta-center" id="loginTitle">Login</h1>
-      <p class="mb24 fs-body2 ta-center" id="loginType">
-        You're logging in as...
-      </p>
-
-      <form id="loginForm" class="d-flex fd-column g12">
-        <input
-          type="text"
-          class="s-input"
-          placeholder="Username or Email"
-          required
-        />
-        <input
-          type="password"
-          class="s-input"
-          placeholder="Password"
-          required
-        />
-        <button type="submit" class="s-btn s-btn__primary">Login</button>
-      </form>
-
-      <div class="ta-center mt16">
-        <a href="index.html" class="fs-caption">← Back to role selection</a>
-      </div>
-    </div>
+    <script defer src="/js/header.js"></script>
     <script src="js/login.js" defer></script>
+  </head>
+
+  <body>
+    <header class="bg-white p16 bb bc-black-075">
+      <div class="d-flex ai-center jc-space-between">
+        <!-- Logo + Title -->
+        <div class="d-flex ai-center g8">
+          <img src="/assests/mandate-logo.png" alt="Mandate Logo" height="36" />
+          <span class="fs-body3 fw-bold">Mandate Portal</span>
+        </div>
+
+        <!-- Hamburger Button (only visible on small screens) -->
+        <button
+          id="menuToggle"
+          class="s-btn s-btn__muted d-lg-none"
+          aria-label="Toggle navigation"
+        >
+          <svg
+            aria-hidden="true"
+            class="svg-icon iconMenuSm"
+            width="24"
+            height="24"
+            viewBox="0 0 18 18"
+          >
+            <path
+              d="M2 4h14M2 9h14M2 14h14"
+              stroke="currentColor"
+              stroke-width="2"
+              fill="none"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </button>
+
+        <!-- Desktop Navigation -->
+        <nav class="nav-desktop d-none d-lg-flex ai-center g12">
+          <a href="index.html" class="s-btn s-btn__link">Home</a>
+          <a href="login.html" class="s-btn s-btn__link">Login</a>
+        </nav>
+      </div>
+
+      <!-- Mobile Navigation -->
+      <nav id="mobileNav" class="d-none fd-column g8 mt8">
+        <a href="index.html" class="s-btn s-btn__link ta-left">Home</a>
+        <a href="login.html" class="s-btn s-btn__link ta-left">Login</a>
+      </nav>
+    </header>
+
+    <main class="d-flex jc-center ai-center h-screen">
+      <div class="s-card w100 p32 bg-white" style="max-width: 300px">
+        <h1 class="mb16 fc-dark ta-center" id="loginTitle">Login</h1>
+        <p class="mb24 fs-body2 ta-center" id="loginType">
+          
+        </p>
+
+        <form id="loginForm" class="d-flex fd-column g12">
+          <input
+            type="text"
+            class="s-input"
+            placeholder="Username or Email"
+            required
+          />
+          <input
+            type="password"
+            class="s-input"
+            placeholder="Password"
+            required
+          />
+          <button type="submit" class="s-btn s-btn__primary">Login</button>
+        </form>
+
+        <div class="ta-center mt16">
+          <a href="index.html" class="fs-caption">← Back to role selection</a>
+        </div>
+      </div>
+    </main>
+
   </body>
 </html>

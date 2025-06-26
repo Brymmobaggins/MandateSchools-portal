@@ -9,25 +9,95 @@
     <!-- Import Stacks CSS -->
     <link rel="stylesheet" href="https://cdn.sstatic.net/Shared/stacks.css" />
     <link rel="stylesheet" href="/css/custom.css" />
+    <script src="js/header.js" defer></script>
   </head>
-  <body class="d-flex jc-center ai-center h-screen bg-black">
-    <div class="s-card p32 mw6 bg-white ta-center">
-      <h1 class="mb16 fc-dark">Mandate School Portal</h1>
-      <p class="mb24 fs-body2">Please choose your login type</p>
-      <div class="d-flex jc-center g16 fw-wrap">
-        <a href="login.html?role=admin" class="s-btn s-btn__primary"
-          >Login as Admin</a
-        >
-        <a
-          href="login.html?role=student"
-          class="s-btn s-btn__muted s-btn__outlined"
-          >Login as Student</a
-        >
-      </div>
-    </div>
-  </body>
+  <body class="d-flex fd-column h-screen bg-gradient">
+    <header class="bg-white p16 bc-black-075">
+      <div class="d-flex ai-center jc-space-between">
+        <!-- Logo + Title -->
+        <div class="d-flex ai-center g8">
+          <img src="/assests/mandate-logo.png" alt="Mandate Logo" height="36" />
+          <span class="fs-body3 fw-bold">Mandate Portal</span>
+        </div>
 
-  <footer class="ta-right fs-caption mt32 fc-light p8">
-    Mandate School Portal – v1.0.0
-  </footer>
+        <!-- Hamburger Button (only visible on small screens) -->
+        <button
+          id="menuToggle"
+          class="s-btn s-btn__muted d-lg-none"
+          aria-label="Toggle navigation"
+        >
+          <svg
+            aria-hidden="true"
+            class="svg-icon iconMenuSm"
+            width="22"
+            height="24"
+            viewBox="0 0 18 18"
+          >
+            <path
+              d="M2 4h14M2 9h14M2 14h14"
+              stroke="currentColor"
+              stroke-width="2"
+              fill="none"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </button>
+
+        <!-- Desktop Navigation -->
+        <nav class="nav-desktop d-none d-lg-flex ai-center g16 fc-dark">
+          <a href="index.html" class="fc-dark fw-bold s-btn s-btn__link"
+            >Home</a
+          >
+          <a href="login.html" class="fc-dark fw-bold s-btn s-btn__link"
+            >Login</a
+          >
+        </nav>
+      </div>
+
+      <!-- Mobile Navigation -->
+      <nav id="mobileNav" class="d-none fd-column g16 mt8 fc-dark">
+        <a href="index.html" class="fc-dark fw-bold s-btn s-btn__link ta-left"
+          >Home</a
+        >
+        <a href="login.html" class="fc-dark fw-bold s-btn s-btn__link ta-left"
+          >Login</a
+        >
+      </nav>
+    </header>
+
+    <main
+      class="flex-grow-1 d-flex ai-center jc-center"
+      style="min-height: calc(100vh - 64px)"
+    >
+      <div class="s-card p32 w100 bg-white ta-center" style="max-width: 420px">
+        <h1 class="fs-headline3 fc-dark mb8">Welcome to Mandate Portal</h1>
+        <p class="fs-body2 fc-black-600 mb24">
+          Manage students, results, admissions & more – all in one place.
+        </p>
+
+        <div class="d-flex fd-column g12">
+          <a
+            href="login.html?role=student"
+            class="flex__item s-btn s-btn__primary"
+            >Login as Student</a
+          >
+          <a
+            href="login.html?role=admin"
+            class="s-btn s-btn__muted s-btn__outlined"
+            >Login as Admin</a
+          >
+        </div>
+      </div>
+    </main>
+    <footer class="fixed-footer d-flex jc-center p16">
+      <ul class="footer-links list-unstyled fs-caption g8">
+        <li class="s-link">About Us</li>
+        <li class="s-link">Contact us</li>
+        <li class="s-link">Terms of use</li>
+        <li class="s-link">Privacy Policy</li>
+        <li class="s-link s-link__greyscale">Help Center</li>
+      </ul>
+    </footer>
+    
+  </body>
 </html>
