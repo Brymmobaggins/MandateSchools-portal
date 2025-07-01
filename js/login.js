@@ -1,11 +1,5 @@
 /** @format */
 
-const adminUser = {
-  username: "admin",
-  password: "1234",
-  role: "admin",
-};
-
 document.addEventListener("DOMContentLoaded", function () {
   const title = document.getElementById("loginTitle");
   const form = document.getElementById("loginForm");
@@ -19,29 +13,36 @@ document.addEventListener("DOMContentLoaded", function () {
       ? "You're logging in as an Admin"
       : "You're logging in as a Student";
 
-  // Handle form submit
-  // Handle form submit
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
     const username = document.getElementById("user-input").value;
     const password = document.getElementById("user-password").value;
 
+    const adminUser = {
+      username: "admin",
+      password: "1234",
+      role: "admin",
+    };
+    // Retrieve existing users from local storage, or initialize an empty array if none exist
+    const user = JSON.parse(localStorage.getItem("loggedInUser")) || [];
+
     if (username == adminUser.username && password === adminUser.password) {
-      const user = JSON.parse(localStorage.getItem("user")) || [];
-      // Move the declaration of dummyUsers here, before it's used
-      const dummyUsers = {
+      const newUser = {
         username,
         password,
       };
-      dummyUsers.push(user);
-
-      localStorage.setItem(JSON.stringify(user));
+      user.push(newUser);
+      localStorage.setItem("loggedInUser", JSON.stringify(adminUser));
 
       window.location.href = "admin-dashboard.html";
     } else {
+
+ 
       alert("invalid Credentials");
     }
+
+   
 
     // if (role === "admin") {
     //   window.location.href = "admin-dashboard.html";

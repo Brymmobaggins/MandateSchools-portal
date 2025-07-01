@@ -1,5 +1,7 @@
 /** @format */
 
+
+/* gray black-300 */
 :root {
   --brand-primary: #1a237e;
   --brand-accent: #00acc1;
@@ -14,6 +16,7 @@ body {
   font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   font-size: 20px; /* Base size */
   line-height: 1.6;
+  background-color:#ffffff;
   height: 100vh;
   overflow-y: hidden;
 }
@@ -72,22 +75,22 @@ header {
 
 .s-btn__primary {
   background-color: var(--brand-primary);
-  color: #fff;
+  color: #ffffff;
   border: none;
 }
-
+#ffffff
 .s-btn__primary:hover {
   background-color: #0d1b5a;
 }
 
-.s-btn__muted {
+/* .s-btn__muted {
   background-color: #f1f1f1;
   color: #333;
 }
 .s-btn__muted:hover {
   background-color: #ddd;
   border: 1px solid #dddd;
-}
+} */
 .g16 {
   gap: 16px;
 }
