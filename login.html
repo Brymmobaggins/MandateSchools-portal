@@ -24,6 +24,7 @@
 
         <!-- Hamburger Button (only visible on small screens) -->
         <button
+          type="button"
           id="menuToggle"
           class="s-btn s-btn__muted d-lg-none"
           aria-label="Toggle navigation"
@@ -62,24 +63,27 @@
     <main class="d-flex jc-center ai-center h-screen">
       <div class="s-card w100 p32 bg-white" style="max-width: 300px">
         <h1 class="mb16 fc-dark ta-center" id="loginTitle">Login</h1>
-        <p class="mb24 fs-body2 ta-center" id="loginType">
-          
-        </p>
+        <p class="mb24 fs-body2 ta-center" id="loginType"></p>
 
         <form id="loginForm" class="d-flex fd-column g12">
           <input
             type="text"
             class="s-input"
-            placeholder="Username or Email" id="user-input"
-            required 
+            placeholder="Username or Email"
+            id="user-input"
+            required
           />
-          <input id="user-password"
+          <input
+            id="user-password"
             type="password"
             class="s-input"
             placeholder="Password"
             required
           />
-          <button id="login-button" type="submit" class="s-btn s-btn__primary">Login</button>
+          <p id="errorBox" class="s-notice s-notice__danger d-none"></p>
+          <button id="login-button" type="submit" class="s-btn s-btn__primary">
+            Login
+          </button>
         </form>
 
         <div class="ta-center mt16">
@@ -87,6 +91,5 @@
         </div>
       </div>
     </main>
-
   </body>
 </html>

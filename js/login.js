@@ -32,22 +32,21 @@ document.addEventListener("DOMContentLoaded", function () {
         username,
         password,
       };
-      user.push(newUser);
       localStorage.setItem("loggedInUser", JSON.stringify(adminUser));
-
+      user.push(newUser);
+      errorBox.classList.add("d-none");
       window.location.href = "admin-dashboard.html";
     } else {
-
- 
-      alert("invalid Credentials");
+      errorBox.textContent = "Invalid Credentials, Please try again!";
+      errorBox.classList.remove("d-none");
     }
+  });
 
-   
+  document.getElementById("user-input").addEventListener("input", () => {
+    errorBox.classList.add("d-none");
+  });
 
-    // if (role === "admin") {
-    //   window.location.href = "admin-dashboard.html";
-    // } else {
-    //   window.location.href = "student-dashboard.html";
-    // }
+  document.getElementById("user-password").addEventListener("input", () => {
+    errorBox.classList.add("d-none");
   });
 });
