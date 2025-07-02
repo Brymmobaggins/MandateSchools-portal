@@ -2,11 +2,6 @@
 
 
 
-## Port number
-
-3000
-
-
 ## tools and library
 stacks is Stack Overflow’s open-source CSS framework, built with accessibility and consistency in mind. It includes:
 

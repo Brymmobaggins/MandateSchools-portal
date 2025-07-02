@@ -1,0 +1,90 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mandate Portal</title>
+    <link rel="stylesheet" href="https://cdn.sstatic.net/Shared/stacks.css" />
+    <link rel="stylesheet" href="css/custom.css" />
+    <script defer src="/js/student-dashboard.js"></script>
+  </head>
+  <body>
+    <!-- Top Navigation -->
+    <header
+      class="d-flex ai-center jc-space-between bg-white p16 bb bc-black-300"
+    >
+      <div class="d-flex ai-center g8">
+        <img src="/assests/mandate-logo.png" alt="Mandate Logo" height="36" />
+        <span class="fs-body3 fw-bold">Mandate Portal</span>
+      </div>
+      <button
+        type="button"
+        id="logout-btn"
+        class="s-btn s-btn__danger s-btn__filled"
+      >
+        Logout
+      </button>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow-1 p32 d-flex jc-center ai-center">
+      <section
+        class="s-card w100 ta-center bg-white p32"
+        style="max-width: 480px"
+      >
+        <h1 id="studentGreeting" class="fs-headline2 fc-dark mb16">
+          Welcome, Student
+        </h1>
+        <p class="fs-body2 fc-black-600 mb24">
+          Access your academic details, results and admission status here.
+        </p>
+
+        <!-- Future sections like profile or results buttons can go here -->
+      </section>
+    </main>
+
+    <div
+      class="d-none modal ps-fixed w100 h100 z-dropdown d-flex ai-center jc-center"
+      id="logout-modal"
+      role="dialog"
+      aria-modal="true"
+      tabindex="-1"
+      style="top: 0; left: 0; margin: 0 auto"
+    >
+      <div class="modal-backdrop"></div>
+      <div
+        class="s-modal--dialog wmx32 bg-white p8 ba bc-black-300 bar-lg"
+        role="document"
+      >
+        <div class="d-flex jc-space-between ai-center">
+          <h3 class="fw-bold">Confirm Logout</h3>
+          <button
+            type="button"
+            class="s-modal--close s-btn s-btn__muted fw-bold"
+            id="closeModal"
+            aria-label="Close"
+          >
+            ✕
+          </button>
+        </div>
+        <div class="s-modal--body">
+          <p class="fs-body1 mb16">Are you sure you want to log out?</p>
+        </div>
+        <div class="s-modal--footer d-flex g8 jc-start">
+          <button id="cancel-logout" type="button" class="s-btn s-btn__muted">
+            Cancel
+          </button>
+          <button
+            id="confirm-logout"
+            type="button"
+            class="s-btn s-btn__xs s-btn__danger s-btn__filled"
+          >
+            Yes, log out
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

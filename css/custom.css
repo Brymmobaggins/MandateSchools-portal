@@ -1,6 +1,5 @@
 /** @format */
 
-
 /* gray black-300 */
 :root {
   --brand-primary: #1a237e;
@@ -16,9 +15,22 @@ body {
   font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   font-size: 20px; /* Base size */
   line-height: 1.6;
-  background-color:#ffffff;
+  background-color: #ffffff;
   height: 100vh;
   overflow-y: hidden;
+}
+/* Add to your /css/custom.css */
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  z-index: 0;
+}
+#logout-modal .s-modal--dialog{
+  position: relative;
+  z-index: 1;
 }
 
 /* Gradient background */
@@ -78,19 +90,10 @@ header {
   color: #ffffff;
   border: none;
 }
-#ffffff
-.s-btn__primary:hover {
+#ffffff .s-btn__primary:hover {
   background-color: #0d1b5a;
 }
 
-/* .s-btn__muted {
-  background-color: #f1f1f1;
-  color: #333;
-}
-.s-btn__muted:hover {
-  background-color: #ddd;
-  border: 1px solid #dddd;
-} */
 .g16 {
   gap: 16px;
 }
