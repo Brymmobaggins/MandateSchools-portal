@@ -17,7 +17,7 @@ body {
   line-height: 1.6;
   background-color: #ffffff;
   height: 100vh;
-  overflow-y: hidden;
+  /* overflow-y: hidden; */
 }
 /* Add to your /css/custom.css */
 .modal-backdrop {
