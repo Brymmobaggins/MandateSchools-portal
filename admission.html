@@ -6,8 +6,6 @@
     <meta charset="UTF-8" />
     <title>Mandate Portal - Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Import Stacks CSS -->
-    <link rel="stylesheet" href="https://cdn.sstatic.net/Shared/stacks.css" />
     <link rel="stylesheet" href="/css/custom.css" />
     <script src="js/header.js" defer></script>
   </head>
@@ -63,9 +61,10 @@
     </header>
 
     <main>
+      
       <!-- application form -->
-      <div
-        class="container w100 wmx4 ba bc-black-300 bar-lg p8"
+      <section
+        class="container md:w75 w-50-lg ba bc-black-300 bar-lg p8"
         style="margin: 0 auto"
       >
         <h1 class="ta-center mb12 fs-title">Mandate Admission Application</h1>
@@ -120,7 +119,9 @@
                 name="example-name-rad"
                 id="example-item-rad"
               />
-              <label class="s-label s-label__sm" for="example-item-rad">Male</label>
+              <label class="s-label s-label__sm" for="example-item-rad"
+                >Male</label
+              >
             </div>
             <div class="s-check-control">
               <input
@@ -129,7 +130,9 @@
                 name="example-name-rad"
                 id="example-item-rad"
               />
-              <label class="s-label s-label__sm" for="example-item-rad">Female</label>
+              <label class="s-label s-label__sm" for="example-item-rad"
+                >Female</label
+              >
             </div>
           </div>
           <!-- Address -->
@@ -175,13 +178,15 @@
               name="example-name"
               id="example-item"
             />
-            <label class="s-label fs-caption" for="example-item">Confirm Info</label>
+            <label class="s-label fs-caption" for="example-item"
+              >Confirm Info</label
+            >
           </div>
           <button class="s-btn s-btn__filled" type="button">
             Submit Application
           </button>
         </form>
-      </div>
+      </section>
     </main>
   </body>
 </html>

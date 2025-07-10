@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/Brymmobaggins/MandateSchools-portal#readme",
   "dependencies": {
+    "@stackoverflow/stacks": "^2.8.0",
     "@stackoverflow/stacks-icons": "^6.4.0"
   }
 }
