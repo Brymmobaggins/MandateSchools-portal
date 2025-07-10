@@ -2,24 +2,30 @@
   "name": "mandate-portal",
   "version": "1.0.0",
   "description": "<!-- @format -->",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "keywords": [],
+  "homepage": "https://github.com/Brymmobaggins/MandateSchools-portal#readme",
+  "bugs": {
+    "url": "https://github.com/Brymmobaggins/MandateSchools-portal/issues"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Brymmobaggins/MandateSchools-portal.git"
   },
-  "keywords": [],
-  "author": "",
   "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/Brymmobaggins/MandateSchools-portal/issues"
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "homepage": "https://github.com/Brymmobaggins/MandateSchools-portal#readme",
   "dependencies": {
     "@stackoverflow/stacks": "^2.8.0",
     "@stackoverflow/stacks-icons": "^6.4.0"
+  },
+  "devDependencies": {
+    "css-loader": "^7.1.2",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.100.0",
+    "webpack-cli": "^6.0.1"
   }
 }

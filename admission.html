@@ -6,8 +6,13 @@
     <meta charset="UTF-8" />
     <title>Mandate Portal - Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@stackoverflow/stacks/dist/css/stacks.min.css"
+    />
     <link rel="stylesheet" href="/css/custom.css" />
-    <script src="js/header.js" defer></script>
+    <script src="/js/header.js"></script>
+    <script defer src="/js/admission.js"></script>
   </head>
   <body class="d-flex fd-column">
     <header class="bg-white p16 bc-black-075">
@@ -61,14 +66,13 @@
     </header>
 
     <main>
-      
       <!-- application form -->
       <section
-        class="container md:w75 w-50-lg ba bc-black-300 bar-lg p8"
+        class="w100 w75-md w50-lg ba bc-black-300 bar-lg p8"
         style="margin: 0 auto"
       >
         <h1 class="ta-center mb12 fs-title">Mandate Admission Application</h1>
-        <form class="d-flex fd-column gy16">
+        <form class="d-flex fd-column gy16" id="admission-form">
           <!-- full name -->
           <div class="d-flex gy4 fd-column">
             <label class="s-label s-label__sm" for="example-title-required"

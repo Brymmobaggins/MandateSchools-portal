@@ -1,4 +1,4 @@
-/** @format */
+
 
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("admission-form");
@@ -6,13 +6,12 @@ document.addEventListener("DOMContentLoaded", function () {
   form.addEventListener("submit", function (e) {
     e.preventDefault(); // prevent form submission
 
-    const formData = new FormData(form)
+    const formData = new FormData(form);
 
     const studentData = {
-        fullname : formData.get("fullName")
-    }
+      fullname: formData.get("fullName")
 
-
+    };
 
   });
 });
