@@ -6,7 +6,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mandate Admin Dashboard</title>
-
     <link rel="stylesheet" href="/css/custom.css" />
     <link rel="stylesheet" href="https://cdn.sstatic.net/Shared/stacks.css" />
     <script defer src="/js/admin-dashboard.js"></script>
@@ -58,19 +57,14 @@
       <!-- Dashboard Content -->
       <main class="p32 w100">
         <h3 class="mb16">Welcome, Admin</h3>
-        <div class="d-flex g16 fw-wrap">
-          <div class="s-card w100 mw4">
-            <h4 class="mb4">Students</h4>
-            <p class="fs-caption">324 enrolled</p>
+        <section id="admission-list" class="card w100 ba bc-black-300">
+          <h2>Submitted Application</h2>
+          <div id="application-container" class="d-flex fd-column g16">
+
           </div>
-          <div class="s-card w100 mw4">
-            <h4 class="mb4">Pending Applications</h4>
-            <p class="fs-caption">12 awaiting approval</p>
-          </div>
-          <div class="s-card w100 mw4">
-            <h4 class="mb4">New Messages</h4>
-            <p class="fs-caption">5 unread</p>
-          </div>
+        </section>
+        
+          
         </div>
       </main>
     </div>

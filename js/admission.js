@@ -9,8 +9,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const formData = new FormData(form);
 
     const studentData = {
-      fullname: formData.get("fullName"),
+      fullName: formData.get("fullName"),
       email: formData.get("email"),
+      phoneNumber: formData.get("phone-number")
     };
 
     // get the item from local storage, if it is not available assign an empty array to it
