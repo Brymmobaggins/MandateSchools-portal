@@ -25,8 +25,8 @@ document.addEventListener("DOMContentLoaded", function () {
     localStorage.setItem("admissionApplication", JSON.stringify(application));
 
 
-    // 
-    alert("Application Submitted Successfully")
+    // redirect to success page after form submission
+    window.location.href ="admission-success.html"
 
     // reset form
     form.reset();
