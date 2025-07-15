@@ -6,7 +6,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const fullNameInput = document.querySelector('input[name="fullName"]');
   const emailInput = document.querySelector('input[name="email"]');
   const phoneInput = document.querySelector('input[name="phone"]');
-  const classSelect = document.querySelector('select[name="class"]');
+  const addressInput = document.querySelector('input[name="address"]');
+  const previousSchooInput = document.querySelector(
+    'input[name="prev-school"]'
+  );
+
+  const classSelected = document.querySelector('select[name="class"]');
   const dobInput = document.querySelector('input[name="dob"]');
 
   form.addEventListener("submit", function (e) {
@@ -33,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // check for DOB
     const isDOBValid = validationField(
       dobInput,
-      "Please a valid date of Birth",
+      "Enter a valid date of Birth",
       (value) => {
         if (!value) return false;
         const selected = new Date(value);
@@ -41,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return selected < today;
       }
     );
-
+    //  check for Gender
     const selectedGender = document.querySelector(
       'input[name="gender"]:checked'
     );
@@ -75,20 +80,50 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     genderError.textContent = isGenderValid ? "" : "Please select a gender.";
 
-    // check for class
-    const isClassValid = validationField(
-      classSelect,
-      "Please Select a Class",
+    // check for address
+    const isAddressValid = validationField(
+      addressInput,
+      "Enter your address",
       (value) => value !== ""
     );
+
+    // logic check for previous school field
+    const isPreviousSchoolValid = validationField(
+      previousSchooInput,
+      "Enter your previous School",
+      (value) => value !== ""
+    );
+    // logic for class applying for
+    const isClassSelected = validationField(
+      classSelected,
+      "Select a class to apply for",
+      (value) => value !== ""
+    );
+    // logic for confirm info
+    const confirmCheckbox = document.querySelector(
+      'input[name="confirm-info"]'
+    );
+    const confirmGroup = confirmCheckbox.closest(".confirm-group");
+    let confirmError = confirmGroup.querySelector(".error-message");
+
+  
+    const isConfirmChecked = confirmCheckbox.checked;
+    // if user checked add"d-none" class, so the error would show
+    confirmError.classList.toggle("d-none", isConfirmChecked)
+    confirmError.textContent = isConfirmChecked
+      ? ""
+      : "Check the box if your information is accurate";
 
     if (
       !isFullNameValid ||
       !isEmailValid ||
       !isPhoneValid ||
-      !isClassValid ||
+      !isAddressValid ||
       !isDOBValid ||
-      !isGenderValid
+      !isGenderValid ||
+      !isPreviousSchoolValid ||
+      !isClassSelected ||
+      !isConfirmChecked
     ) {
       return false;
     } else {
@@ -99,6 +134,8 @@ document.addEventListener("DOMContentLoaded", function () {
         phoneNumber: formData.get("phone-number"),
         DOB: formData.get("dob"),
         gender: formData.get("gender"),
+        address: formData.get("address"),
+        classApplyingfor: form.get("class"),
       };
 
       // get the item from local storage, if it is not available assign an empty array to it

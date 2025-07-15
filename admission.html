@@ -169,7 +169,12 @@
                 >*</abbr
               ></label
             >
-            <input class="s-input" id="example-title-required" type="text" />
+            <input
+              class="s-input"
+              id="example-title-required"
+              type="text"
+              name="address"
+            />
           </div>
           <!-- Previous School -->
           <div class="d-flex gy4 fd-column">
@@ -178,7 +183,12 @@
                 >*</abbr
               ></label
             >
-            <input class="s-input" id="example-title-required" type="text" />
+            <input
+              class="s-input"
+              id="example-title-required"
+              type="text"
+              name="prev-school"
+            />
           </div>
           <!-- Class Applying -->
           <div class="d-flex gy4 fd-column">
@@ -186,7 +196,7 @@
               Class Applying
             </label>
             <div class="flex--item s-select">
-              <select id="select-menu">
+              <select id="select-menu" name="class">
                 <option value="" selected>Please select one…</option>
                 <option value="Grade 7">Grade 7</option>
                 <option value="Grade 8">Grade 8</option>
@@ -197,18 +207,26 @@
               </select>
             </div>
           </div>
-          <!-- confirm info -->
-          <div class="s-check-control">
-            <input
-              class="s-checkbox"
-              type="checkbox"
-              name="example-name"
-              id="example-item"
-            />
-            <label class="s-label fs-caption" for="example-item"
-              >Confirm Info</label
-            >
+  
+          
+          <div class="confirm-group">
+           
+            <div class="d-flex ai-center g4">
+              <input
+                type="checkbox"
+                name="confirm-info"
+                id="example-item"
+                class="s-checkbox"
+              />
+              <label for="example-item" class="s-label fs-body2">
+                Confirm that information provided is accurate
+              </label>
+            </div>
+
+            <!-- This is where the error will be inserted -->
+            <p class="fs-caption fc-red-500 mt4 error-message d-none"></p>
           </div>
+
           <button class="s-btn s-btn__filled" type="submit">
             Submit Application
           </button>
