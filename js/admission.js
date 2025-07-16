@@ -106,10 +106,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const confirmGroup = confirmCheckbox.closest(".confirm-group");
     let confirmError = confirmGroup.querySelector(".error-message");
 
-  
     const isConfirmChecked = confirmCheckbox.checked;
     // if user checked add"d-none" class, so the error would show
-    confirmError.classList.toggle("d-none", isConfirmChecked)
+    confirmError.classList.toggle("d-none", isConfirmChecked);
     confirmError.textContent = isConfirmChecked
       ? ""
       : "Check the box if your information is accurate";
@@ -135,21 +134,25 @@ document.addEventListener("DOMContentLoaded", function () {
         DOB: formData.get("dob"),
         gender: formData.get("gender"),
         address: formData.get("address"),
-        classApplyingfor: form.get("class"),
+        classApplyingfor: formData.get("class"),
       };
 
       // get the item from local storage, if it is not available assign an empty array to it
       const application =
         JSON.parse(localStorage.getItem("admissionApplication")) || [];
-
-      // push or add new applicant to the array
       application.push(studentData);
 
       // save back to local storage
       localStorage.setItem("admissionApplication", JSON.stringify(application));
 
-      // redirect to success page after form submission
-      window.location.href = "admission-success.html";
+      document.querySelector("section").classList.add("d-none");
+
+      document.querySelector("#spinner-wrapper").classList.remove("d-none")
+
+    //  the success message would delay for five seconds before display
+      setTimeout(() => {
+        window.location.href = "admission-success.html"
+      }, 5000);
 
       // reset form
       form.reset();
