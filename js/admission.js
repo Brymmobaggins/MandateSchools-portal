@@ -133,6 +133,7 @@ document.addEventListener("DOMContentLoaded", function () {
         phoneNumber: formData.get("phone-number"),
         DOB: formData.get("dob"),
         gender: formData.get("gender"),
+        previousSchool: formData.get("prev-school"),
         address: formData.get("address"),
         classApplyingfor: formData.get("class"),
       };

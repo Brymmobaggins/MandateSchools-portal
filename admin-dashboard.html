@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdn.sstatic.net/Shared/stacks.css" />
     <script defer src="/js/admin-dashboard.js"></script>
   </head>
-  <body class="bg-black-025">
+  <body class="bg-black-025 ff-sans">
     <!-- Top Navigation -->
     <header class="bg-white p16 bc-black-075">
       <div class="d-flex ai-center jc-space-between">
@@ -22,7 +22,11 @@
 
         <!-- Desktop Navigation -->
 
-        <button type="button" id="log-out" class="s-btn s-btn__danger">
+        <button
+          type="button"
+          id="log-out"
+          class="s-btn s-btn__danger s-btn_filled ff-sans lh-md"
+        >
           Logout
         </button>
       </div>
@@ -55,18 +59,49 @@
       </aside>
 
       <!-- Dashboard Content -->
-      <main class="p32 w100">
-        <h3 class="mb16">Welcome, Admin</h3>
-        <section id="admission-list" class="card w100 ba bc-black-300">
-          <h2>Submitted Application</h2>
-          <div id="application-container" class="d-flex fd-column g16">
+      <main class="p32 flex-grow-1">
+        <h1 class="fs-headline2 mb24">Student Applications</h1>
 
-          </div>
-        </section>
-        
-          
+        <!-- Table Section -->
+        <div class="overflow-x-auto s-table-container">
+          <table class="s-table s-table__lg s-table__stripes">
+            <thead>
+              <tr>
+                <th scope="col">Full Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">DOB</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Address</th>
+                <th scope="col">Previous School</th>
+                <th cscope="col">Status</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="studentsTableBody">
+              <!-- JS will populate rows here -->
+            </tbody>
+          </table>
         </div>
       </main>
+     
+      <!-- View Details Modal -->
+      <div id="view-modal" class="d-none modal-overlay">
+        <div
+          class="modal-content ba bc-black-100 bar-md bg-white p16 wmx8 mx-auto"
+        >
+          <div class="d-flex jc-space-between ai-center mb16">
+            <h3 class="fs-headline3 fw-bold">Student Details</h3>
+            <button type="button" id="closeModal" class="s-btn s-btn__danger s-btn__icon">
+              X
+            </button>
+          </div>
+          <div
+            id="studentDetailsContainer"
+            class="fs-body2 g24 d-flex fd-column"
+          ></div>
+        </div>
+      </div>
     </div>
   </body>
 </html>
