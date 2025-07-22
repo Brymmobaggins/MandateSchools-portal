@@ -6,8 +6,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mandate Admin Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@stackoverflow/stacks/dist/css/stacks.min.css">
     <link rel="stylesheet" href="/css/custom.css" />
-    <link rel="stylesheet" href="https://cdn.sstatic.net/Shared/stacks.css" />
     <script defer src="/js/admin-dashboard.js"></script>
   </head>
   <body class="bg-black-025 ff-sans">
@@ -25,7 +25,7 @@
         <button
           type="button"
           id="log-out"
-          class="s-btn s-btn__danger s-btn_filled ff-sans lh-md"
+          class="s-btn s-btn__danger s-btn__outlined ff-sans lh-md"
         >
           Logout
         </button>
@@ -64,7 +64,7 @@
 
         <!-- Table Section -->
         <div class="overflow-x-auto s-table-container">
-          <table class="s-table s-table__lg s-table__stripes">
+          <table class="s-table s-table__stripes">
             <thead>
               <tr>
                 <th scope="col">Full Name</th>
@@ -74,7 +74,7 @@
                 <th scope="col">Gender</th>
                 <th scope="col">Address</th>
                 <th scope="col">Previous School</th>
-                <th cscope="col">Status</th>
+                <th cscope="col">Class Appying for</th>
                 <th scope="col">Actions</th>
               </tr>
             </thead>
@@ -88,20 +88,20 @@
       <!-- View Details Modal -->
       <div id="view-modal" class="d-none modal-overlay">
         <div
-          class="modal-content ba bc-black-100 bar-md bg-white p16 wmx8 mx-auto"
+          class="modal-content ba bc-black-100 bar-md bg-white p8 wmx8 mx-auto"
         >
-          <div class="d-flex jc-space-between ai-center mb16">
-            <h3 class="fs-headline3 fw-bold">Student Details</h3>
-            <button type="button" id="closeModal" class="s-btn s-btn__danger s-btn__icon">
+          <div class="d-flex jc-space-between ai-center fd-row mb16">
+            <h4 class="fs-headline3 fw-bold">Applicant Details</h4>
+            <button type="button" id="closeModal" class="s-btn s-btn__danger s-btn__icon" aria-label="@_s("Close")">
               X
             </button>
           </div>
           <div
             id="studentDetailsContainer"
-            class="fs-body2 g24 d-flex fd-column"
+            class="fs-body2 d-flex fd-column ff-sans"
           ></div>
         </div>
       </div>
     </div>
-  </body>
+
 </html>
