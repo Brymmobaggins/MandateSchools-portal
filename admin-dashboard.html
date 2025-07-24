@@ -6,7 +6,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mandate Admin Dashboard</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@stackoverflow/stacks/dist/css/stacks.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@stackoverflow/stacks/dist/css/stacks.min.css"
+    />
     <link rel="stylesheet" href="/css/custom.css" />
     <script defer src="/js/admin-dashboard.js"></script>
   </head>
@@ -60,13 +63,32 @@
 
       <!-- Dashboard Content -->
       <main class="p32 flex-grow-1">
-        <h1 class="fs-headline2 mb24">Student Applications</h1>
-
-        <!-- Table Section -->
+        <div class="d-flex jc-space-between ai-center p16">
+          <h1 class="">Student Applications</h1>
+          <div class="d-flex g16">
+            <input
+              class="s-input s-input__md"
+              id="search-input"
+              name="fullName"
+              type="text"
+              placeholder="Searh by name, email or  class"
+            />
+            <div class="s-select s-select__md">
+              <select id="status-filter" class="ff-sans">
+                <option value="All" selected>All Statuses</option>
+                <option value="Approved">Approved</option>
+                <option value="Rejected">Rejected</option>
+                <option value="Pending">Pending</option>
+               
+              </select>
+            </div>
+          </div>
+        </div>
         <div class="overflow-x-auto s-table-container">
+          <!-- Table Section -->
           <table class="s-table s-table__stripes">
             <thead>
-              <tr>
+              <tr> 
                 <th scope="col">Full Name</th>
                 <th scope="col">Email</th>
                 <th scope="col">Phone Number</th>
@@ -75,16 +97,17 @@
                 <th scope="col">Address</th>
                 <th scope="col">Previous School</th>
                 <th cscope="col">Class Appying for</th>
-                <th scope="col">Actions</th>
+                <th scope="col">Status</th>
               </tr>
             </thead>
+
             <tbody id="studentsTableBody">
               <!-- JS will populate rows here -->
             </tbody>
           </table>
         </div>
       </main>
-     
+
       <!-- View Details Modal -->
       <div id="view-modal" class="d-none modal-overlay">
         <div
@@ -92,7 +115,11 @@
         >
           <div class="d-flex jc-space-between ai-center fd-row mb16">
             <h4 class="fs-headline3 fw-bold">Applicant Details</h4>
-            <button type="button" id="closeModal" class="s-btn s-btn__danger s-btn__icon" aria-label="@_s("Close")">
+            <button
+              type="button"
+              id="closeModal"
+              class="s-btn s-btn__danger s-btn__icon"
+            >
               X
             </button>
           </div>
@@ -103,5 +130,5 @@
         </div>
       </div>
     </div>
-
+  </body>
 </html>
