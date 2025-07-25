@@ -1,16 +1,51 @@
 /** @format */
 
+// Redirect if not logged in or not admin
 const user = JSON.parse(localStorage.getItem("loggedInUser"));
-if (!user || !user.role == "admin") {
+if (!user || user.role !== "admin") {
   window.location.href = "login.html";
 }
-const logoutBtn = document.getElementById("log-out");
 
+// Logout functionality
+const logoutBtn = document.getElementById("log-out");
 logoutBtn.addEventListener("click", () => {
   localStorage.removeItem("loggedInUser");
   window.location.href = "index.html";
 });
 
+// Utility: Returns tag class based on status
+function getStatusClass(status) {
+  if (status === "Approved") return "s-tag__success";
+  if (status === "Rejected") return "s-tag__danger";
+  return "s-tag__info"; // Default: Pending or undefined
+}
+
+// Utility: Filter applications based on search input and status filter
+function getFilteredApplications(applications, searchValue, selectedStatus) {
+  return applications.filter((app) => {
+    const matchesSearch =
+      app.fullName.toLowerCase().includes(searchValue) ||
+      app.email.toLowerCase().includes(searchValue) ||
+      app.classApplyingfor.toLowerCase().includes(searchValue);
+
+    let matchesStatus = false;
+
+    if (selectedStatus === "All") {
+      matchesStatus = true;
+    } else if (
+      selectedStatus === "Pending" &&
+      (!app.status || app.status === "Pending")
+    ) {
+      matchesStatus = true;
+    } else {
+      matchesStatus = app.status === selectedStatus;
+    }
+
+    return matchesSearch && matchesStatus;
+  });
+}
+
+// ✅ DOM Ready
 document.addEventListener("DOMContentLoaded", () => {
   const studentsTableBody = document.getElementById("studentsTableBody");
   const studentDetailsContainer = document.getElementById(
@@ -25,30 +60,29 @@ document.addEventListener("DOMContentLoaded", () => {
     JSON.parse(localStorage.getItem("admissionApplication")) || [];
   let currentAppIndex = null;
 
-  function renderApplications(applicationList) {
+  // ✅ Render applications in table
+  function renderApplications(appList) {
     studentsTableBody.innerHTML = "";
 
-    if (applicationList.length === 0) {
+    if (appList.length === 0) {
       studentsTableBody.innerHTML = `
         <tr><td colspan="10" class="fsbody2 p8 ta-center">No Applications Found</td></tr>
       `;
       return;
     }
 
-    applicationList.forEach((app, index) => {
+    appList.forEach((app, index) => {
       const tableRow = document.createElement("tr");
       tableRow.className = "ba bc-100-300 p16 bar-md";
-      tableRow.setAttribute("data-app-id", index);
-
       tableRow.innerHTML = `
         <td>${app.fullName}</td>
         <td>${app.email}</td>
         <td>${app.phoneNumber}</td>
         <td>${app.DOB}</td>
         <td>${app.gender}</td>
-        <td>${app.address}</td>
         <td>${app.previousSchool}</td>
         <td>${app.classApplyingfor}</td>
+        <td>${app.fullName}</td>
         <td>
           <span class="s-tag ${getStatusClass(app.status)}">
             ${app.status || "Pending"}
@@ -61,20 +95,21 @@ document.addEventListener("DOMContentLoaded", () => {
       studentsTableBody.appendChild(tableRow);
     });
 
-    attachViewHandlers(applicationList);
+    attachViewHandlers(appList);
   }
 
-  function attachViewHandlers(applicationList) {
+  // ✅ Attach click event for each "View" button
+  function attachViewHandlers(appList) {
     const viewButtons = studentsTableBody.querySelectorAll(".view-btn");
     viewButtons.forEach((btn, i) => {
       btn.addEventListener("click", () => {
         currentAppIndex = i;
-        const app = applicationList[i];
-        showStudentDetails(app, i);
+        showStudentDetails(appList[i], i);
       });
     });
   }
-  //  function to show applicants details
+
+  // ✅ Show application details in modal
   window.showStudentDetails = function (app, index) {
     studentDetailsContainer.innerHTML = `
       <p><strong>Full Name:</strong> ${app.fullName}</p>
@@ -94,13 +129,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     viewModal.classList.remove("d-none");
 
+    // Add click handlers for approval/rejection
     document.getElementById("approve-btn").onclick = () =>
       updateApplicationStatus(index, "Approved");
 
     document.getElementById("reject-btn").onclick = () =>
       updateApplicationStatus(index, "Rejected");
   };
-  // function to udpate applicant status
+
+  // ✅ Update status and re-render
   function updateApplicationStatus(index, status) {
     applications[index].status = status;
     localStorage.setItem("admissionApplication", JSON.stringify(applications));
@@ -108,90 +145,35 @@ document.addEventListener("DOMContentLoaded", () => {
     viewModal.classList.add("d-none");
   }
 
+  // ✅ Hide modal on close
   closeModalBtn.addEventListener("click", () => {
     viewModal.classList.add("d-none");
   });
-  //  function for filter of applicant and return the selected from the dropdow
-  function filterApplication() {
-    const searchValue = searchInput.value.toLowerCase();
-    const selectedStatus = statusFilter.value;
 
-    const filteredApps = applications.filter((app) => {
-      const matchesSearch =
-        app.fullName.toLowerCase().includes(searchValue) ||
-        app.email.toLowerCase().includes(searchValue) ||
-        app.classApplyingfor.toLowerCase();
+  // ✅ Filter when dropdown changes
+  statusFilter.addEventListener("change", () => {
+    const filtered = getFilteredApplications(
+      applications,
+      searchInput.value.toLowerCase(),
+      statusFilter.value
+    );
+    renderApplications(filtered);
+  });
 
-      const appStatus = app.status || "Pending";
-      const matchesStatus =
-        selectedStatus === "All" || appStatus === selectedStatus;
-      return matchesSearch && matchesStatus;
-    });
-
-    if (filteredApps.length == 0) {
-      studentsTableBody.innerHTML = `
-       <tr><td colspan="10" class="fsbody2 p8 ta-center">No Matching Application</td></tr>
-       `;
-    } else {
-      studentsTableBody.innerHTML = "";
-      filteredApps.forEach((app) => {
-        const index = applications.findIndex((a) => a.email === app.email);
-
-        const tableRow = document.createElement("tr");
-        tableRow.className = "ba bc-100-300 p16 bar-md";
-        tableRow.innerHTML = `
-           <td>${app.fullName}</td>
-           <td>${app.email}</td>
-           <td>${app.phoneNumber}</td>
-           <td>${app.DOB}</td>
-           <td>${app.gender}</td>
-           <td>${app.previousSchool}</td>
-           <td>${app.classApplyingfor}</td>
-           <td>${app.fullName}</td>
-           <td>
-           <span class="s-tag ${getStatusClass(app.status)}">${
-          app.status || "Pending"
-        }</span>
-        </td>
-        <td>
-          <button type="button" class="s-btn s-btn__sm s-btn__muted" data-index="${index}">View</button>
-        </td>
-        `;
-        const viewBtn = tableRow.querySelector("button");
-        viewBtn.addEventListener("click", () => {
-          showStudentDetails(applications[index], index);
-        });
-
-        studentsTableBody.appendChild(tableRow);
-      });
-    }
-  }
-  statusFilter.addEventListener("change", filterApplication);
-
-  // Debounced search input
+  // ✅ Debounced search
   let searchTimeout;
   searchInput.addEventListener("input", () => {
     clearTimeout(searchTimeout);
     searchTimeout = setTimeout(() => {
-      const searchValue = searchInput.value.toLowerCase();
-      const filteredApps = applications.filter((app) => {
-        return (
-          app.fullName.toLowerCase().includes(searchValue) ||
-          app.email.toLowerCase().includes(searchValue) ||
-          app.classApplyingfor.toLowerCase().includes(searchValue)
-        );
-      });
-      renderApplications(filteredApps);
+      const filtered = getFilteredApplications(
+        applications,
+        searchInput.value.toLowerCase(),
+        statusFilter.value
+      );
+      renderApplications(filtered);
     }, 300);
   });
 
-  // Initial render
+  // ✅ Initial render
   renderApplications(applications);
 });
-
-// this fuction will update the status of the applicant on the DOM
-function getStatusClass(status) {
-  if (status == "Approved") return "s-tag__success";
-  if (status == "Rejected") return "s-tag__danger";
-  return "s-tag__info";
-}
