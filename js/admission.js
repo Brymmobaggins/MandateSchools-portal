@@ -148,11 +148,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
       document.querySelector("section").classList.add("d-none");
 
-      document.querySelector("#spinner-wrapper").classList.remove("d-none")
+      document.querySelector("#spinner-wrapper").classList.remove("d-none");
 
-    //  the success message would delay for five seconds before display
+      //  the success message would delay for five seconds before display
       setTimeout(() => {
-        window.location.href = "admission-success.html"
+        window.location.href = "admission-success.html";
       }, 5000);
 
       // reset form

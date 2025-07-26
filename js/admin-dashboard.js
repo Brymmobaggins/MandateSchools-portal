@@ -45,22 +45,90 @@ function getFilteredApplications(applications, searchValue, selectedStatus) {
   });
 }
 
-// ✅ DOM Ready
+// DOM Ready
 document.addEventListener("DOMContentLoaded", () => {
+  const statusFilter = document.getElementById("status-filter");
+  const searchInput = document.getElementById("search-input");
   const studentsTableBody = document.getElementById("studentsTableBody");
   const studentDetailsContainer = document.getElementById(
     "studentDetailsContainer"
   );
   const viewModal = document.getElementById("view-modal");
   const closeModalBtn = document.getElementById("closeModal");
-  const searchInput = document.getElementById("search-input");
-  const statusFilter = document.getElementById("status-filter");
+  const exportCSVButton = document.getElementById("export-csv");
+
+  exportCSVButton.addEventListener("click", () => {
+    const searchValue = searchInput.value.toLowerCase();
+    const selectedStatus = statusFilter.value;
+
+    const filteredApps = applications.filter((app) => {
+      const matchesSearch =
+        app.fullName.toLowerCase().includes(searchValue) ||
+        app.email.toLowerCase().includes(searchValue) ||
+        app.classApplyingfor.toLowerCase().includes(searchValue);
+
+      const matchesStatus =
+        selectedStatus === "All" || app.status === selectedStatus;
+
+      return matchesSearch && matchesStatus;
+    });
+
+    if (filteredApps.length === 0) {
+      alert("No Application to Export");
+    }
+    // define CSV header
+
+    const headers = [
+      "Full Name",
+      "Email",
+      "Phone Number",
+      "DOB",
+      "Gender",
+      "Address",
+      "Previous School",
+      "Class Applying",
+      "Status",
+    ];
+
+    let csvContent = headers.join(",") + "\n";
+
+    //  append each row
+
+    filteredApps.forEach((app) => {
+      const row = [
+        app.fullName,
+        app.email,
+        app.phoneNumber,
+        app.DOB,
+        app.gender,
+        app.address,
+        app.previousSchool,
+        app.classApplyingfor,
+        app.status,
+      ];
+      csvContent = row.join(",") + "\n";
+    });
+    // a blob for download
+    const blob = new Blob([csvContent], {
+      type: "text/csv;chartset=utf-8;",
+    });
+    const url = URL.createObjectURL(blob);
+    
+    // a tempoary link that trigger download
+    const link = document.createElement("a")
+    link.setAttribute("href", "url")
+    link.setAttribute("download", "applications.csv")
+    link.style.display = "none"
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+  });
 
   const applications =
     JSON.parse(localStorage.getItem("admissionApplication")) || [];
   let currentAppIndex = null;
 
-  // ✅ Render applications in table
+  // Render applications in table
   function renderApplications(appList) {
     studentsTableBody.innerHTML = "";
 
@@ -98,7 +166,7 @@ document.addEventListener("DOMContentLoaded", () => {
     attachViewHandlers(appList);
   }
 
-  // ✅ Attach click event for each "View" button
+  // Attach click event for each "View" button
   function attachViewHandlers(appList) {
     const viewButtons = studentsTableBody.querySelectorAll(".view-btn");
     viewButtons.forEach((btn, i) => {
@@ -109,7 +177,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ✅ Show application details in modal
+  //Show application details in modal
   window.showStudentDetails = function (app, index) {
     studentDetailsContainer.innerHTML = `
       <p><strong>Full Name:</strong> ${app.fullName}</p>
@@ -177,3 +245,5 @@ document.addEventListener("DOMContentLoaded", () => {
   // ✅ Initial render
   renderApplications(applications);
 });
+
+// export csv buttom

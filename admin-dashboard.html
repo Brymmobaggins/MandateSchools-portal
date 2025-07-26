@@ -63,7 +63,7 @@
 
       <!-- Dashboard Content -->
       <main class="p32 flex-grow-1">
-        <div class="d-flex jc-space-between ai-center p16">
+        <div class="d-flex jc-space-between ai-center fd-row p16">
           <h1 class="">Student Applications</h1>
           <div class="d-flex g16">
             <input
@@ -79,16 +79,27 @@
                 <option value="Approved">Approved</option>
                 <option value="Rejected">Rejected</option>
                 <option value="Pending">Pending</option>
-               
               </select>
             </div>
+            <button
+              type="button" id="export-csv"
+              class="s-btn__sm s-btn s-btn__filled s-btn__featured w1"
+            >
+              Export Applications as CSV
+            </button>
+            <button
+              type="button"
+              class="s-btn__sm s-btn s-btn__filled s-btn__featured no-wrap"
+            >
+              Export Application as PDF
+            </button>
           </div>
         </div>
         <div class="overflow-x-auto s-table-container">
           <!-- Table Section -->
           <table class="s-table s-table__stripes">
             <thead>
-              <tr> 
+              <tr>
                 <th scope="col">Full Name</th>
                 <th scope="col">Email</th>
                 <th scope="col">Phone Number</th>
