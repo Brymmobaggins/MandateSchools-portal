@@ -32,6 +32,7 @@
         >
           Logout
         </button>
+        <button type="button" class="s-btn s-btn__sm">Toggle Theme</button>
       </div>
 
       <!-- Mobile Navigation -->
@@ -82,14 +83,16 @@
               </select>
             </div>
             <button
-              type="button" id="export-csv"
-              class="s-btn__sm s-btn s-btn__filled s-btn__featured w1"
+              type="button"
+              id="export-csv"
+              class="s-btn__sm s-btn s-btn__filled s-btn__featured"
             >
               Export Applications as CSV
             </button>
             <button
               type="button"
-              class="s-btn__sm s-btn s-btn__filled s-btn__featured no-wrap"
+              id="export-pdf"
+              class="s-btn__sm s-btn s-btn__filled s-btn__featured"
             >
               Export Application as PDF
             </button>
@@ -100,15 +103,17 @@
           <table class="s-table s-table__stripes">
             <thead>
               <tr>
-                <th scope="col">Full Name</th>
+                <th scope="col" class="sortable" data-column="fullName">
+                  Full Name
+                </th>
                 <th scope="col">Email</th>
                 <th scope="col">Phone Number</th>
-                <th scope="col">DOB</th>
+                <th scope="col" class="sortable" data-column="DOB">DOB</th>
                 <th scope="col">Gender</th>
                 <th scope="col">Address</th>
                 <th scope="col">Previous School</th>
                 <th cscope="col">Class Appying for</th>
-                <th scope="col">Status</th>
+                <th scope="col" class="sortable" data-colum="status">Status</th>
               </tr>
             </thead>
 
@@ -117,6 +122,11 @@
             </tbody>
           </table>
         </div>
+        <!-- <div id="pagination-controls" class="mt16 ta-center">
+          <button type="button" id="prev-page">Previous</button>
+          <span id="page-indicator">Page 1 of X</span>
+          <button type="button" id="next-page" class="">Next</button>
+        </div> -->
       </main>
 
       <!-- View Details Modal -->

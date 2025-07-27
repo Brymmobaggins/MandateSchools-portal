@@ -13,6 +13,7 @@ logoutBtn.addEventListener("click", () => {
   window.location.href = "index.html";
 });
 
+
 // Utility: Returns tag class based on status
 function getStatusClass(status) {
   if (status === "Approved") return "s-tag__success";
@@ -45,6 +46,7 @@ function getFilteredApplications(applications, searchValue, selectedStatus) {
   });
 }
 
+
 // DOM Ready
 document.addEventListener("DOMContentLoaded", () => {
   const statusFilter = document.getElementById("status-filter");
@@ -56,6 +58,40 @@ document.addEventListener("DOMContentLoaded", () => {
   const viewModal = document.getElementById("view-modal");
   const closeModalBtn = document.getElementById("closeModal");
   const exportCSVButton = document.getElementById("export-csv");
+  const exportPDFButton = document.getElementById("export-pdf");
+
+  exportPDFButton.addEventListener("click", () => {
+    const searchValue = searchInput.value.toLowerCase();
+    const selectedStatus = statusFilter.value;
+
+    const filteredApps = applications.filter((app) => {
+      const matchesSearch =
+        app.fullName.toLowerCase().includes(searchValue) ||
+        app.email.toLowerCase().includes(searchValue) ||
+        app.classApplyingfor.toLowerCase().includes(searchValue);
+
+      const matchesStatus =
+        selectedStatus === "All" || app.status === selectedStatus;
+
+      return matchesSearch && matchesStatus;
+    });
+    if (filteredApps.length === 0) {
+      alert("No Application to Export");
+    }
+    const headers = [
+      "Full Name",
+      "Email",
+      "Phone Number",
+      "DOB",
+      "Gender",
+      "Address",
+      "Previous School",
+      "Class Applying",
+      "Status",
+    ];
+
+    let csvContent = headers.join(",") + "\n";
+  });
 
   exportCSVButton.addEventListener("click", () => {
     const searchValue = searchInput.value.toLowerCase();
@@ -93,7 +129,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let csvContent = headers.join(",") + "\n";
 
     //  append each row
-
     filteredApps.forEach((app) => {
       const row = [
         app.fullName,
@@ -106,22 +141,22 @@ document.addEventListener("DOMContentLoaded", () => {
         app.classApplyingfor,
         app.status,
       ];
-      csvContent = row.join(",") + "\n";
+      csvContent += row.join(",") + "\n";
     });
     // a blob for download
     const blob = new Blob([csvContent], {
       type: "text/csv;chartset=utf-8;",
     });
     const url = URL.createObjectURL(blob);
-    
+
     // a tempoary link that trigger download
-    const link = document.createElement("a")
-    link.setAttribute("href", "url")
-    link.setAttribute("download", "applications.csv")
-    link.style.display = "none"
-    document.body.appendChild(link)
-    link.click()
-    document.body.removeChild(link)
+    const link = document.createElement("a");
+    link.setAttribute("href", url);
+    link.setAttribute("download", "applications.csv");
+    link.style.display = "none";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   });
 
   const applications =
@@ -228,6 +263,7 @@ document.addEventListener("DOMContentLoaded", () => {
     renderApplications(filtered);
   });
 
+
   // ✅ Debounced search
   let searchTimeout;
   searchInput.addEventListener("input", () => {
@@ -244,6 +280,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ✅ Initial render
   renderApplications(applications);
-});
 
-// export csv buttom
+
+});

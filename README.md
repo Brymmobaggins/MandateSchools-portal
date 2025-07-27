@@ -1,5 +1,11 @@
 <!-- @format -->
 
+## features on admin Dashboard
+search  for applicant by name, class or email
+filter feature
+3-email notification(Mock or real)
+4- dark an light mode
+5 - Print preview
 
 
 ## tools and library

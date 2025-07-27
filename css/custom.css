@@ -218,3 +218,7 @@ hader {
 .s-tag__info {
   background-color: #1b75d0;
 }
+
+.sortable{
+  cursor: pointer;
+}
