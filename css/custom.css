@@ -219,6 +219,18 @@ hader {
   background-color: #1b75d0;
 }
 
-.sortable{
+.sortable {
   cursor: pointer;
+}
+
+/* ligt and dark mode defining */
+
+body.light-mode {
+  background-color: #ffffff;
+  color: #111111;
+}
+
+body.dark-mode {
+  color: #ffffff;
+  background-color: #111111;
 }
