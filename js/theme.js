@@ -1,40 +1,39 @@
 /** @format */
 
 document.addEventListener("DOMContentLoaded", () => {
-  
   const toggleButton = document.getElementById("toggle-button");
   const themeIcon = document.getElementById("theme-icon");
-  const DARK_MODE_CLASS = "dark-mode";
-  const LIGHT_MODE_CLASS = "light-mode";
+  const DARK = "dark-mode";
+  const LIGHT = "light-mode";
 
-  // Check if a theme is saved in localStorage, default to "light" if not
-  const savedTheme = localStorage.getItem("theme") || "light";
+  // Detect system preference
+  const systemPrefersDark = window.matchMedia(
+    "(prefers-color-scheme: dark)"
+  ).matches;
+  const savedTheme =
+    localStorage.getItem("theme") || (systemPrefersDark ? "dark" : "light");
 
-  // Apply the saved theme to the body and set the icon
+  // Apply theme to body and icon
   if (savedTheme === "dark") {
-    document.body.classList.add(DARK_MODE_CLASS);
-    themeIcon.textContent = "☀️"; // Sun icon for dark mode
+    document.body.classList.add(DARK);
+    document.body.classList.remove(LIGHT);
+    themeIcon.textContent = "☀️";
   } else {
-    document.body.classList.add(LIGHT_MODE_CLASS);
-    themeIcon.textContent = "🌙"; // Moon icon for light mode
+    document.body.classList.add(LIGHT);
+    document.body.classList.remove(DARK);
+    themeIcon.textContent = "🌙";
   }
 
-  // When the toggle button is clicked, switch between dark and light modes
+  // Theme toggle logic
   if (toggleButton) {
     toggleButton.addEventListener("click", () => {
-      const isCurrentlyDark = document.body.classList.contains(DARK_MODE_CLASS);
+      const isDark = document.body.classList.contains(DARK);
+      document.body.classList.toggle(DARK);
+      document.body.classList.toggle(LIGHT);
 
-      if (isCurrentlyDark) {
-        // Switch to light mode
-        document.body.classList.replace(DARK_MODE_CLASS, LIGHT_MODE_CLASS);
-        localStorage.setItem("theme", "light");
-        themeIcon.textContent = "🌙";
-      } else {
-        // Switch to dark mode
-        document.body.classList.replace(LIGHT_MODE_CLASS, DARK_MODE_CLASS);
-        localStorage.setItem("theme", "dark");
-        themeIcon.textContent = "☀️";
-      }
+      const newTheme = isDark ? "light" : "dark";
+      localStorage.setItem("theme", newTheme);
+      themeIcon.textContent = newTheme === "dark" ? "☀️" : "🌙";
     });
   }
 });

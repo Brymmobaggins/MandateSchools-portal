@@ -14,13 +14,13 @@
     <script defer src="/js/header.js"></script>
     <script defer src="js/login.js"></script>
   </head>
-  <body class="d-flex fd-column h-screen bg-gradient">
-    <header class="bg-white p16 bc-black-075">
+  <body class="d-flex fd-column h-screen bg-gradien">
+    <header class="bg-white p16 bb bc-black-075">
       <div class="d-flex ai-center jc-space-between">
         <!-- Logo + Title -->
         <div class="d-flex ai-center g8">
-          <img src="/assests/mandate-logo.png" alt="Mandate Logo" height="36" />
-          <span class="fs-body3 fw-bold">Mandate Portal</span>
+          <img src="/assests/mandate-logo.png" alt="Mandate Logo" height="48" />
+          <span class="fs-body4 fw-bold">Mandate Portal</span>
         </div>
 
         <!-- Hamburger Button (only visible on small screens) -->
@@ -48,10 +48,11 @@
         </button>
 
         <!-- Desktop Navigation -->
-        <nav class="nav-desktop d-none d-lg-flex ai-center g16">
-          <a href="index.html" class="s-btn fc-white bg-orange-400">Home</a>
-          <a href="login.html" class="fc-dark s-link">Login</a>
-          <a href="" class="fc-dark s-link">Get Started</a>
+        <nav class="nav-desktop d-none d-lg-flex ai-center g24">
+          <a href="login.html" class="fc-dark s-link">Sign in</a>
+          <a href="/login.html" class="s-btn s-btn__md s-btn__primary"
+            >Get Started</a
+          >
         </nav>
       </div>
 
@@ -67,30 +68,55 @@
     </header>
 
     <main
-      class="flex-grow-1 d-flex ai-center jc-center"
+      class="flex-grow-1 d-flex md:fd-column ai-center jc-center g24"
       style="min-height: calc(100vh - 64px)"
     >
-      <div class="s-card p32 w100 bg-white ta-center" style="max-width: 420px">
-        <h1 class="fs-headline3 fc-dark mb8">Welcome to Mandate Portal</h1>
+      <!-- Student -->
+      <div class="s-card p32 w100 bg-white ta-center" style="max-width: 500px">
+        <h1 class="fs-headline3 fc-dark mb8">I'm a Student</h1>
         <p class="fs-body2 fc-black-600 mb24">
-          Manage students, results, admissions & more – all in one place.
+          Access your courses, assignmnent, grades, and connect with classmates
         </p>
 
-        <div class="d-flex fd-column g12">
-          <a href="login.html?role=student" class="s-btn s-btn__primary"
-            >Login as Student</a
-          >
-          <a
-            href="login.html?role=admin"
-            class="s-btn s-btn__muted s-btn__outlined"
-            >Login as Admin</a
-          >
+        <ul style="text-align: initial">
+          <li>View course materials and schedule</li>
+          <li>Submit assignmnents and track grades</li>
+          <li>Communicate with teachers and peers</li>
+        </ul>
 
-          <a href="admission.html" class="s-link">New Student? Apply here</a>
-        </div>
+        <button
+          type="button"
+          class="s-btn w100 s-btn__md"
+          style="background-color: #18181b; color: #ffffff"
+        >
+          Sign Up as Student
+        </button>
+      </div>
+
+      <!-- Adminstrator -->
+      <div class="s-card p32 w100 bg-white ta-center" style="max-width: 500px">
+        <h1 class="fs-headline3 fc-dark mb8">I'm an Adminstrator</h1>
+        <p class="fs-body2 fc-black-600 mb24">
+          Manage school operations, students, teachers, and academic programs
+        </p>
+
+        <ul style="text-align: initial">
+          <li>Manage student and teacher accounts</li>
+          <li>Oversee academic programs and schedules</li>
+          <li>Access analytics and reports</li>
+        </ul>
+
+        <button
+          type="button"
+          class="s-btn w100 s-btn__md"
+          style="background-color: #9333ea; color: #ffffff"
+        >
+          Sign Up as Adminstrator
+        </button>
       </div>
     </main>
-    <footer class="fixed-footer d-flex jc-center g8 p16">
+
+    <footer class="d-flex jc-center g8 p16">
       <ul class="footer-links list-unstyled fs-caption g8">
         <li class="s-link s-link__grayscale">About Us</li>
         <li class="s-link s-link__grayscale">Contact us</li>

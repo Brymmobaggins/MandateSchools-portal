@@ -171,6 +171,10 @@ hader {
     width: 50%;
   }
 }
+/* when viewporth is 480px and lower the css rules applies to it */
+@media (max-width: 650px) {
+ 
+}
 
 .bs-sm {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
@@ -225,14 +229,46 @@ hader {
   cursor: pointer;
 }
 
-/* ligt and dark mode defining */
+/* Base transition for smooth switching */
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
 
-body.light-mode {
+#theme-icon {
+  transition: transform 0.3s ease;
+}
+
+/* Light mode */
+.light-mode {
   background-color: #ffffff;
+  color: #000000;
+}
+
+.light-mode .navbar,
+.light-mode .dashboard-wrapper,
+.light-mode h1,
+.light-mode td,
+.light-mode .table-container {
+  background-color: #f7f7f7;
   color: #111111;
 }
 
-body.dark-mode {
+/* Dark mode */
+.dark-mode {
+  background-color: #121212;
   color: #ffffff;
-  background-color: #111111;
+}
+
+.dark-mode .navbar,
+.dark-mode .dashboard-wrapper,
+.dark-mode h1,
+.dark-mode td,
+.dark-mode .table-container {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+/* Icon rotation (optional visual flair) */
+.dark-mode #theme-icon {
+  transform: rotate(180deg);
 }

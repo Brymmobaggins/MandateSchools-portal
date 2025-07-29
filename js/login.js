@@ -1,3 +1,20 @@
+/**
+ * Handles the login page logic for both Admin and Student roles.
+ * - Dynamically updates the page title and login type text based on the "role" query parameter.
+ * - Handles form submission for login, validating credentials for admin users.
+ * - Stores the logged-in admin user in localStorage and redirects to the admin dashboard on success.
+ * - Displays error messages for invalid credentials.
+ * - Hides error messages when the user modifies input fields.
+ *
+ * Dependencies:
+ * - Expects DOM elements with IDs: "pageTitle", "loginForm", "loginType", "user-input", "user-password".
+ * - Uses localStorage to persist the logged-in user.
+ *
+ * @event DOMContentLoaded
+ * @listens form#loginForm:submit
+ * @listens input#user-input:input
+ * @listens input#user-password:input
+ */
 /** @format */
 
 document.addEventListener("DOMContentLoaded", function () {
