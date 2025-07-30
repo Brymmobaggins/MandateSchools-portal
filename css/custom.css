@@ -13,12 +13,7 @@
 *::after {
   box-sizing: inherit;
 }
-/* html,
-body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-} */
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI Adjusted",
     "Segoe UI", "Liberation Sans", sans-serif;
@@ -27,9 +22,6 @@ body {
   line-height: 1.6;
   background-color: #ffffff;
   color: #636b74;
-  /* height: 100vh; */
-  /* overflow-y: hidden; */
-
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -65,7 +57,7 @@ body {
   animation: gradientMove 10s ease infinite;
 }
 
-hader {
+header {
   position: sticky;
   top: 0;
   z-index: 100;
@@ -113,9 +105,9 @@ hader {
 
 .footer-links {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-start;
-}
+} 
 /* responsive typograpical */
 @media (max-width: 768px) {
   body {
@@ -141,11 +133,11 @@ hader {
   .w75-md {
     width: 75%;
   }
-  .footer-links {
+  /* .footer-links {
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-  }
+  } */
 }
 
 /* Styles for medium devices (like tablets) with screen widths between 769px and 1024px */
