@@ -4,7 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Mandate Portal - Login</title>
+    <title>Mandate Portal - Choose Portal</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
       rel="stylesheet"
@@ -50,9 +50,6 @@
         <!-- Desktop Navigation -->
         <nav class="nav-desktop d-none d-lg-flex ai-center g24">
           <a href="login.html" class="fc-dark s-link">Sign in</a>
-          <a href="index.html" class="s-btn s-btn__md s-btn__primary"
-            >Get Started</a
-          >
         </nav>
       </div>
 
@@ -68,15 +65,12 @@
     </header>
 
     <main style="background-color: #e4ebff">
-      <section class="wmx-100 mx-auto px12" style="max-width: 1200px">
+      <section class="wmx-100 mx-auto px12" style="max-width: 1500px">
         <div class="">
-          <h1 class="fs-display3 ta-center fw-bold mt32">
-            Welcome to <span style="color: green">EduPortal</span>
-          </h1>
+          <h1 class="fs-display3 ta-center fw-bold mt32">Choose Your Portal</h1>
           <p class="ta-center fs-headline1 mb24">
-            A comprehensive school management system designed for modern
-            education. <br />Choose your role to get started with your
-            personalized experience
+            Select your role to access your personalized dashboard and features
+            designed specifically for your needs.
           </p>
         </div>
         <!-- Student -->
@@ -101,20 +95,44 @@
             <a
               href="login.html?role=student"
               class="s-btn s-btn__md"
-              style="background-color: #18181b; color: #ffffff"
-              >Sign in as Student</a
+              style="background-color: var(--student-color); color: #ffffff"
+              >Continue as a Student</a
             >
           </div>
 
-          <!-- Adminstrator -->
+          <!-- teacher -->
+          <div
+            class="s-card p32 w100 bg-white ta-center"
+            style="max-width: 450px"
+          >
+            <h1 class="fs-headline3 fc-dark mb8">I'm a Teacher</h1>
+            <p class="fs-body2 fc-black-600 mb24">
+              Manage your classes, enter grades, take attendance, create
+              assignments and communicate with students and parents.
+            </p>
+
+            <ul style="text-align: initial">
+              <li>Manage student and teacher accounts</li>
+              <li>Oversee academic programs and schedules</li>
+              <li>Access analytics and reports</li>
+            </ul>
+
+            <a
+              href="login.html?role=admin"
+              class="s-btn s-btn__md fw-bold"
+              style="background-color: var(--teacher-color); color: #ffffff"
+              >Continue as a Teacher</a
+            >
+          </div>
+          <!-- admin -->
           <div
             class="s-card p32 w100 bg-white ta-center"
             style="max-width: 450px"
           >
             <h1 class="fs-headline3 fc-dark mb8">I'm an Adminstrator</h1>
             <p class="fs-body2 fc-black-600 mb24">
-              Manage school operations, students, teachers, and academic
-              programs
+              Oversee school operations, manage student admissions, teacher
+              recruitment, generate reports and system configuration
             </p>
 
             <ul style="text-align: initial">
@@ -126,8 +144,31 @@
             <a
               href="login.html?role=admin"
               class="s-btn s-btn__md"
-              style="background-color: #9333ea; color: #ffffff"
-              >Sign in as an Administrator</a
+              style="background-color: var(--admin-color); color: #ffffff"
+              >Continue as a Admin</a
+            >
+          </div>
+          <!-- Parent -->
+          <div
+            class="s-card p32 w100 bg-white ta-center"
+            style="max-width: 550px"
+          >
+            <h1 class="fs-headline3 fc-dark mb8">I'm a Parent/Guardian</h1>
+            <p class="fs-body2 fc-black-600 mb24">
+              Monitor your ward's academic progress, view report cards, pay
+              school fees and communicate with teachers.
+            </p>
+            <ul style="text-align: initial">
+              <li>Manage student and teacher accounts</li>
+              <li>Oversee academic programs and schedules</li>
+              <li>Access analytics and reports</li>
+            </ul>
+
+            <a
+              href="login.html?role=admin"
+              class="s-btn s-btn__md"
+              style="background-color: var(--parent-color); color: #ffffff"
+              >Continue as a Parent/Guardian</a
             >
           </div>
         </div>
@@ -169,7 +210,6 @@
               </p>
             </li>
             <!--  -->
-
             <li class="ta-center w100 sm:w-auto">
               <div class="mb12">
                 <div

@@ -5,8 +5,16 @@
 /* line height 17px and 13px, font size 13px and 17px */
 
 :root {
-  --brand-primary: #1a237e;
-  --brand-accent: #00acc1;
+  --student-color: hsl(221, 83%, 53%);
+  --teacher-color: hsl(142, 76%, 36%);
+  --admin-color: hsl(271, 81%, 56%);
+  --parent-color: hsl(21, 90%, 48%);
+  --theme-text-color: #333333;
+}
+
+.test-color {
+  background: var(--student-color) !important;
+  color: #fff !important;
 }
 *,
 *::before,
@@ -107,7 +115,7 @@ header {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-} 
+}
 /* responsive typograpical */
 @media (max-width: 768px) {
   body {
@@ -165,7 +173,6 @@ header {
 }
 /* when viewporth is 480px and lower the css rules applies to it */
 @media (max-width: 650px) {
- 
 }
 
 .bs-sm {
