@@ -10,11 +10,13 @@
  * - Expects DOM elements with IDs: "pageTitle", "loginForm", "loginType", "user-input", "user-password".
  * - Uses localStorage to persist the logged-in user.
  *
+ * @format
  * @event DOMContentLoaded
  * @listens form#loginForm:submit
  * @listens input#user-input:input
  * @listens input#user-password:input
  */
+
 /** @format */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -28,11 +30,16 @@ document.addEventListener("DOMContentLoaded", function () {
     return;
   }
 
-  const isAdmin = role === "admin";
-  title.textContent = isAdmin ? "Admin Login" : "Student Login";
-  typeText.textContent = isAdmin
-    ? "You're logging in as an Admin"
-    : "You're logging in as a Student";
+  if (role) {
+    // get the first letter, convert it UpperCase, concatenate the rest to Lower case
+    let displayRole = role[0].toUpperCase() + role.slice(1).toLowerCase();
+    title.textContent = displayRole + " login";
+    typeText.textContent = "Login as a " + displayRole;
+    // if role is use "an" for grammatical error
+    if (role === "admin") {
+      typeText.textContent = "Login as an " + displayRole;
+    }
+  }
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
@@ -40,11 +47,29 @@ document.addEventListener("DOMContentLoaded", function () {
     const username = document.getElementById("user-input").value;
     const password = document.getElementById("user-password").value;
 
-    const adminUser = {
-      username: "admin",
-      password: "1234",
-      role: "admin",
-    };
+    [
+      {
+        username: "admin",
+        password: "1234",
+        role: "admin",
+      },
+      {
+        username: "student",
+        password: "xyz",
+        role: "student",
+      },
+      {
+        username: "teacher",
+        password: "teacher123",
+        role: "teacher",
+      },
+      {
+        username: "parent",
+        password: "parent123",
+        role: "Parent",
+      },
+    ];
+
     // Retrieve existing users from local storage, or initialize an empty array if none exist
     const user = JSON.parse(localStorage.getItem("loggedInUser")) || [];
 
