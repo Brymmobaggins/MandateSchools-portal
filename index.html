@@ -10,6 +10,10 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@stackoverflow/stacks/dist/css/stacks.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <link rel="stylesheet" href="/css/custom.css" />
     <script defer src="/js/header.js"></script>
     <script defer src="js/login.js"></script>
@@ -50,7 +54,9 @@
         <!-- Desktop Navigation -->
         <nav class="nav-desktop d-none d-lg-flex ai-center g24">
           <a href="login.html" class="fc-dark s-link">Sign in</a>
-          <a href="index.html" class="s-btn s-btn__md fc-white bg-black-600"
+          <a
+            href="/choose-portal.html"
+            class="s-btn s-btn__md fc-white bg-black-600"
             >Get Started</a
           >
         </nav>
@@ -59,10 +65,10 @@
       <!-- Mobile Navigation -->
       <nav id="mobileNav" class="d-none fd-column g16 mt8 fc-dark">
         <a href="index.html" class="fc-dark fw-bold s-btn s-btn__link ta-left"
-          >Home</a
+          >Sign In</a
         >
         <a href="login.html" class="fc-dark fw-bold s-btn s-btn__link ta-left"
-          >Login</a
+          >Get Started</a
         >
       </nav>
     </header>
@@ -80,12 +86,18 @@
           </p>
         </div>
         <!-- Student -->
-        <div class="flex-grow-1 d-flex md:fd-column jc-center g24 p8">
+        <div class="mx-auto d-flex md:fd-column jc-center g24 p8">
           <div
             class="s-card p32 w100 bg-white ta-center"
             style="max-width: 450px"
             ;
           >
+            <span class="bar bg-white">
+              <i
+                class="fa-solid fa-book-open fs-body3 md:fs-title lg:fs-headline2"
+              ></i>
+            </span>
+
             <h1 class="fs-headline3 fc-dark mb8">I'm a Student</h1>
             <p class="fs-body2 fc-black-600 mb24">
               Access your courses, assignmnent, grades, and connect with
@@ -111,6 +123,7 @@
             class="s-card p32 w100 bg-white ta-center"
             style="max-width: 450px"
           >
+            <i class="fas fa-user-tie fs-body3 md:fs-title lg:fs-headline2"></i>
             <h1 class="fs-headline3 fc-dark mb8">I'm an Adminstrator</h1>
             <p class="fs-body2 fc-black-600 mb24">
               Manage school operations, students, teachers, and academic
@@ -140,11 +153,9 @@
             <li class="ta-center w100 sm:w-auto">
               <div class="mb12">
                 <div
-                  class="bg-green-100 fc-green-500 p12 bar-sm d-inline-flex ai-center jc-center"
+                  class="bg-green-100 fc-green-500 p12 d-inline-flex ai-center jc-center"
                 >
-                  <svg class="svg-icon iconPeople" width="24" height="24">
-                    <use xlink:href="#iconPeople"></use>
-                  </svg>
+                  <i class="fa-solid fa-handshake fs-headline2"></i>
                 </div>
               </div>
               <h3 class="fs-subheading fw-bold">Collaborative Learning</h3>
@@ -158,9 +169,7 @@
                 <div
                   class="bg-orange-100 fc-orange-500 p12 bar-sm d-inline-flex ai-center jc-center"
                 >
-                  <svg class="svg-icon iconStats" width="24" height="24">
-                    <use xlink:href="#iconStats"></use>
-                  </svg>
+                  <i class="fa-solid fa-chart-simple fs-headline2"></i>
                 </div>
               </div>
               <h3 class="fs-subheading fw-bold">Data-Driven Insights</h3>
@@ -175,9 +184,7 @@
                 <div
                   class="bg-blue-100 fc-blue-500 p12 bar-sm d-inline-flex ai-center jc-center"
                 >
-                  <svg class="svg-icon iconClock" width="24" height="24">
-                    <use xlink:href="#iconClock"></use>
-                  </svg>
+                  <i class="fa-solid fa-clock fs-headline2"></i>
                 </div>
               </div>
               <h3 class="fs-subheading fw-bold">24/7 Access</h3>
