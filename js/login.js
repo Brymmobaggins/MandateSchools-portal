@@ -1,22 +1,3 @@
-/**
- * Handles the login page logic for both Admin and Student roles.
- * - Dynamically updates the page title and login type text based on the "role" query parameter.
- * - Handles form submission for login, validating credentials for admin users.
- * - Stores the logged-in admin user in localStorage and redirects to the admin dashboard on success.
- * - Displays error messages for invalid credentials.
- * - Hides error messages when the user modifies input fields.
- *
- * Dependencies:
- * - Expects DOM elements with IDs: "pageTitle", "loginForm", "loginType", "user-input", "user-password".
- * - Uses localStorage to persist the logged-in user.
- *
- * @format
- * @event DOMContentLoaded
- * @listens form#loginForm:submit
- * @listens input#user-input:input
- * @listens input#user-password:input
- */
-
 /** @format */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -35,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let displayRole = role[0].toUpperCase() + role.slice(1).toLowerCase();
     title.textContent = displayRole + " login";
     typeText.textContent = "Login as a " + displayRole;
-    // if role is use "an" for grammatical error
+    // if role is admin use "an" for grammatical error
     if (role === "admin") {
       typeText.textContent = "Login as an " + displayRole;
     }
@@ -43,11 +24,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
-
     const username = document.getElementById("user-input").value;
     const password = document.getElementById("user-password").value;
 
-    [
+    const usersArray = [
       {
         username: "admin",
         password: "1234",
@@ -70,20 +50,33 @@ document.addEventListener("DOMContentLoaded", function () {
       },
     ];
 
-    // Retrieve existing users from local storage, or initialize an empty array if none exist
-    const user = JSON.parse(localStorage.getItem("loggedInUser")) || [];
+    // Save the array in localStorage
+    localStorage.setItem("users", JSON.stringify(usersArray));
 
-    if (username == adminUser.username && password === adminUser.password) {
-      const newUser = {
-        username,
-        password,
-      };
-      localStorage.setItem("loggedInUser", JSON.stringify(adminUser));
-      user.push(newUser);
-      errorBox.classList.add("d-none");
-      window.location.href = "admin-dashboard.html";
+    // Retrieve the users localStorage
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    console.log(users);
+
+    // find user with match credential
+    const foundUser = users.find(
+      (user) => user.username === username && user.password === password
+    );
+
+    if (foundUser) {
+      localStorage.setItem("loggedInUser", JSON.stringify(foundUser));
+    
+      if (foundUser.role === "admin") {
+        window.location.href = "admin-dashboard.html";
+        console.log("hello");
+      } else if (foundUser.role === "student") {
+        window.location.href = "student-dashboard.html";
+      } else if (foundUser.role === "teacher") {
+        window.location.href = "teacher-dashbord.html";
+      } else if (foundUser.role === "parent") {
+        window.location.href = "parent-dashboard.html";
+      }
     } else {
-      errorBox.textContent = "Invalid Credentials, Please try again!";
+      errorBox.textContent = "Invalid Credential, please try again!";
       errorBox.classList.remove("d-none");
     }
   });
