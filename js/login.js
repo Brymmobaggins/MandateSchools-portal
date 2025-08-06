@@ -15,11 +15,11 @@ document.addEventListener("DOMContentLoaded", function () {
     // get the first letter, convert it UpperCase, concatenate the rest to Lower case
     let displayRole = role[0].toUpperCase() + role.slice(1).toLowerCase();
     title.textContent = displayRole + " login";
-    typeText.textContent = "Login as a " + displayRole;
+    // typeText.textContent =  displayRole;
     // if role is admin use "an" for grammatical error
-    if (role === "admin") {
-      typeText.textContent = "Login as an " + displayRole;
-    }
+    // if (role === "admin") {
+    //   typeText.textContent = "Login as an " + displayRole;
+    // }
   }
 
   form.addEventListener("submit", function (e) {

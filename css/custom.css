@@ -173,8 +173,7 @@ header {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 /* Force consistent width & box sizing */
-.s-input,
-.s-btn {
+.s-input {
   box-sizing: border-box;
   display: block;
 }
@@ -265,12 +264,9 @@ body {
 .dark-mode #theme-icon {
   transform: rotate(180deg);
 }
-.input-icon{
+svg {
   position: absolute;
   transform: translateY(-50%);
   left: 10px;
   top: 50%;
-  
-
-
 }
