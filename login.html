@@ -11,6 +11,10 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@stackoverflow/stacks/dist/css/stacks.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <link rel="stylesheet" href="css/custom.css" />
     <script defer src="/js/header.js"></script>
     <script defer src="/js/login.js"></script>
@@ -63,34 +67,77 @@
       </nav>
     </header>
 
-    <main class="d-flex jc-center ai-center h-screen">
-      <div class="s-card w100 p32 bg-white" style="max-width: 300px">
-        <h1 class="mb16 fc-dark ta-center" id="pageTitle">Login</h1>
-        <p class="mb24 fs-body2 ta-center" id="loginType"></p>
+    <main
+      class="d-flex jc-center ai-center h-screen"
+      style="background-color: #e4ebff"
+    >
+      <div class="s-card w100 p16 bg-white bs-sm" style="max-width: 450px">
+        <h1 class="mb16 fc-dark ta-center fc-dark" id="pageTitle">Login</h1>
+        <p class="mb24 fs-body2 ta-center fc-light" id="loginType"></p>
 
-        <form id="loginForm" class="d-flex fd-column g12">
-          <input
-            type="text"
-            class="s-input"
-            placeholder="Username or Email"
-            id="user-input"
-            required
-          />
-          <input
-            id="user-password"
-            type="password"
-            class="s-input"
-            placeholder="Password"
-            required
-          />
+        <form id="loginForm" class="d-flex fd-column gy16">
+          <!-- Email -->
           <p
             id="errorBox"
             class="s-notice s-notice__danger d-none"
-            style="word-wrap: initial; padding: 8px;"
+            style="word-wrap: initial; padding: 8px"
           ></p>
-          <button id="login-button" type="submit" class="s-btn s-btn__filled">
+          <div>
+            <label for="" class="fc-dark fw-bold ff-inherit">Email or ID</label>
+            <div class="d-flex ps-relative">
+              <i class="input-icon fa-regular fa-envelope fc-light"></i>
+              <input
+                type="text"
+                class="s-input s-input__md"
+                id="user-input"
+                style="padding-left: 30px"
+                required
+              />
+            </div>
+            <span class="fs-caption fc-light"
+              >You can use your email address, student ID (e.g., STU2024001), or
+              employee ID</span
+            >
+          </div>
+
+          <!-- password -->
+          <div>
+            <label for="" class="fc-dark fw-bold ff-inherit">Password</label>
+            <div class="d-flex ps-relative">
+              <i class="input-icon fa-regular fa-lock fc-light"></i>
+              <input
+                id="user-password"
+                type="password"
+                class="s-input s-input__md"
+                style="padding-left: 30px"
+                required
+              />
+            </div>
+          </div>
+
+          <button
+            id="login-button"
+            type="submit"
+            class="s-btn fc-white bg-black-600 fw-bold"
+          >
             Login
           </button>
+          <div class="d-flex jc-space-between ai-center">
+            <div>
+              <input
+                class="s-checkbox"
+                type="checkbox"
+                name="example-name"
+                id="example-item"
+              />
+              <label class="s-label fc-medium" for="">Remember me</label>
+            </div>
+            <span>
+              <a href="#" class="fs-body1 td-none fc-medium"
+                >Forgot Password?</a
+              ></span
+            >
+          </div>
         </form>
 
         <div class="ta-center mt16">

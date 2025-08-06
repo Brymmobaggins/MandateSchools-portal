@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
       {
         username: "parent",
         password: "parent123",
-        role: "Parent",
+        role: "parent",  
       },
     ];
 

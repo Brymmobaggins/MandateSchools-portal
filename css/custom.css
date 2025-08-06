@@ -25,7 +25,6 @@
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI Adjusted",
     "Segoe UI", "Liberation Sans", sans-serif;
-
   font-size: 20px; /* Base size */
   line-height: 1.6;
   background-color: #ffffff;
@@ -265,4 +264,13 @@ body {
 /* Icon rotation (optional visual flair) */
 .dark-mode #theme-icon {
   transform: rotate(180deg);
+}
+.input-icon{
+  position: absolute;
+  transform: translateY(-50%);
+  left: 10px;
+  top: 50%;
+  
+
+
 }
