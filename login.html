@@ -55,7 +55,9 @@
 
         <!-- Desktop Navigation -->
         <nav class="nav-desktop d-none d-lg-flex ai-center g12">
-          <a href="/choose-portal.html" class="s-btn s-btn__link">← Back to role selection</a>
+          <a href="/choose-portal.html" class="s-btn s-btn__link"
+            >← Back to role selection</a
+          >
           <!-- <a href="login.html" class="s-btn s-btn__link">Login</a> -->
         </nav>
       </div>
@@ -70,10 +72,21 @@
     </header>
 
     <main
-      class="d-flex jc-center ai-center h-screen"
+      class="d-flex jc-center ai-center fd-column h-screen"
       style="background-color: #e4ebff"
     >
-      <div class="s-card w100 p16 bg-white bs-sm" style="max-width: 450px">
+      <div
+        id="spinner"
+        class="d-flex fd-row jc-space-between d-none is-loading fc-dark"
+      >
+        
+      </div>
+
+      <div
+        class="s-card w100 p16 bg-white bs-sm"
+        id="form-parent"
+        style="max-width: 450px"
+      >
         <h1 class="mb8 fc-dark ta-center fc-dark ff-inherit" id="pageTitle">
           Login
         </h1>
@@ -85,7 +98,7 @@
           <!-- Email -->
 
           <p
-            id="errorBox"
+            id="error-div" role="alert"
             class="s-notice fc-error s-notice__danger d-none"
             style="word-wrap: initial; padding: 8px"
           ></p>
@@ -136,7 +149,7 @@
               <input
                 id="user-password"
                 type="password"
-                class="s-input s-input__md" 
+                class="s-input s-input__md"
                 style="padding-left: 35px"
                 required
               />
@@ -168,14 +181,11 @@
           </div>
         </form>
 
-        <div class="ta-center mt16 fc-light">Don't have an account?
-          <a href="" class=""
-            >Sign up here</a
-          >
+        <div class="ta-center mt16 fc-light">
+          Don't have an account?
+          <a href="" class="">Sign up here</a>
         </div>
-      
       </div>
     </main>
-    
   </body>
 </html>

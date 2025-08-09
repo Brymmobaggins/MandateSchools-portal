@@ -5,6 +5,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("loginForm");
   const typeText = document.getElementById("loginType");
   const role = new URLSearchParams(window.location.search).get("role");
+  const spinner = document.getElementById("spinner");
+  const formParent = document.getElementById("form-parent");
+  const errorBox = document.getElementById("error-div");
 
   if (!title || !typeText) {
     console.error("Error: Required DOM elements not found.");
@@ -22,70 +25,76 @@ document.addEventListener("DOMContentLoaded", function () {
     // }
   }
 
+  // Listen for form submission
   form.addEventListener("submit", function (e) {
     e.preventDefault();
+
+    // Get entered username and password
     const username = document.getElementById("user-input").value;
     const password = document.getElementById("user-password").value;
 
+    // Define valid users and their credentials
     const usersArray = [
-      {
-        username: "admin",
-        password: "1234",
-        role: "admin",
-      },
-      {
-        username: "student",
-        password: "xyz",
-        role: "student",
-      },
-      {
-        username: "teacher",
-        password: "teacher123",
-        role: "teacher",
-      },
-      {
-        username: "parent",
-        password: "parent123",
-        role: "parent",  
-      },
+      { username: "admin", password: "1234", role: "admin" },
+      { username: "student", password: "xyz", role: "student" },
+      { username: "teacher", password: "teacher123", role: "teacher" },
+      { username: "parent", password: "parent123", role: "parent" },
     ];
 
-    // Save the array in localStorage
+    // Store users in localStorage for later retrieval
     localStorage.setItem("users", JSON.stringify(usersArray));
 
-    // Retrieve the users localStorage
-    const users = JSON.parse(localStorage.getItem("users")) || [];
-    console.log(users);
-
-    // find user with match credential
-    const foundUser = users.find(
-      (user) => user.username === username && user.password === password
-    );
-
-    if (foundUser) {
-      localStorage.setItem("loggedInUser", JSON.stringify(foundUser));
-    
-      if (foundUser.role === "admin") {
-        window.location.href = "admin-dashboard.html";
-        console.log("hello");
-      } else if (foundUser.role === "student") {
-        window.location.href = "student-dashboard.html";
-      } else if (foundUser.role === "teacher") {
-        window.location.href = "teacher-dashbord.html";
-      } else if (foundUser.role === "parent") {
-        window.location.href = "parent-dashboard.html";
-      }
-    } else {
-      errorBox.textContent = "Invalid Credential, please try again!";
-      errorBox.classList.remove("d-none");
+    // Show spinner and hide form while verifying credentials
+    if (spinner && formParent) {
+      formParent.classList.add("d-none");
+      spinner.classList.remove("d-none");
+      spinner.textContent = "Verifying credentials...";
     }
-  });
 
-  document.getElementById("user-input").addEventListener("input", () => {
-    errorBox.classList.add("d-none");
-  });
+    // Simulate server-side verification with a delay
+    setTimeout(() => {
+      // Retrieve users from localStorage
+      const users = JSON.parse(localStorage.getItem("users")) || [];
 
-  document.getElementById("user-password").addEventListener("input", () => {
-    errorBox.classList.add("d-none");
+      // Check if entered credentials match any user
+      const foundUser = users.find(
+        (user) => user.username === username && user.password === password
+      );
+
+      if (foundUser) {
+        // Save logged in user info
+        localStorage.setItem("loggedInUser", JSON.stringify(foundUser));
+
+        // Redirect to the appropriate dashboard based on user role
+        switch (foundUser.role) {
+          case "admin":
+            window.location.href = "admin-dashboard.html";
+            break;
+          case "student":
+            window.location.href = "student-dashboard.html";
+            break;
+          case "teacher":
+            window.location.href = "teacher-dashbord.html";
+            break;
+          case "parent":
+            window.location.href = "parent-dashboard.html";
+            break;
+        }
+      } else {
+        // Show error message and reset UI if credentials are invalid
+        if (errorBox) {
+          errorBox.textContent = "Invalid Credentials";
+          errorBox.classList.remove("d-none");
+        }
+        if (spinner && formParent) {
+          spinner.classList.add("d-none");
+          formParent.classList.remove("d-none");
+        }
+        // reset on failed error
+        form.reset();
+      }
+    }, 5000);
+
+   
   });
 });
