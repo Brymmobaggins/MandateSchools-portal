@@ -7,12 +7,6 @@ if (!user || user.role !== "admin") {
 }
 
 // Logout functionality
-const logoutBtn = document.getElementById("log-out");
-logoutBtn.addEventListener("click", () => {
-  localStorage.removeItem("loggedInUser");
-  window.location.href = "index.html";
-});
-
 
 // Utility: Returns tag class based on status
 function getStatusClass(status) {
@@ -46,7 +40,6 @@ function getFilteredApplications(applications, searchValue, selectedStatus) {
   });
 }
 
-
 // DOM Ready
 document.addEventListener("DOMContentLoaded", () => {
   const statusFilter = document.getElementById("status-filter");
@@ -59,6 +52,30 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeModalBtn = document.getElementById("closeModal");
   const exportCSVButton = document.getElementById("export-csv");
   const exportPDFButton = document.getElementById("export-pdf");
+  const logoutBtn = document.getElementById("log-out");
+  const yesLogoutBtn = document.getElementById("yes-logout");
+  const noLogoutBtn = document.getElementById("no-logout");
+  const logoutModal = document.getElementById("logout-modal");
+
+  logoutBtn.addEventListener("click", () => {
+    if (viewModal) {
+      viewModal.classList.remove("d-none");
+      document.getElementById("view-applicant-modal").classList.add("d-none");
+      logoutModal.classList.remove("d-none");
+    }
+  });
+  document.getElementById("view-applicant-modal").classList.remove("d-none");
+  // yesLogoutBtn.addEventListener("click", () => {
+  //   localStorage.removeItem("loggedInUser");
+  //   window.location.href = "index.html";
+  // });
+  noLogoutBtn.addEventListener("click", () => {
+    if (viewModal) {
+      viewModal.classList.add("d-none");
+    } else {
+      document.getElementById("view-applicant-modal").classList.add("d-none");
+    }
+  });
 
   exportPDFButton.addEventListener("click", () => {
     const searchValue = searchInput.value.toLowerCase();
@@ -183,7 +200,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <td>${app.phoneNumber}</td>
         <td>${app.DOB}</td>
         <td>${app.gender}</td>
-        <td>${app.address}</td>
+        <t>${app.address}</t>
         <td>${app.previousSchool}</td>
         <td>${app.classApplyingfor}</td>
         <td>
@@ -231,6 +248,7 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
 
     viewModal.classList.remove("d-none");
+    logoutModal.classList.add("d-none");
 
     // Add click handlers for approval/rejection
     document.getElementById("approve-btn").onclick = () =>
@@ -263,7 +281,6 @@ document.addEventListener("DOMContentLoaded", () => {
     renderApplications(filtered);
   });
 
-
   // ✅ Debounced search
   let searchTimeout;
   searchInput.addEventListener("input", () => {
@@ -280,6 +297,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ✅ Initial render
   renderApplications(applications);
-
-
 });

@@ -51,7 +51,7 @@
     </header>
 
     <!-- Main Layout -->
-    <div class="d-flex">
+    <main class="d-flex">
       <!-- Sidebar -->
       <aside
         class="sidebar p16 bg-white w200 bs-sm"
@@ -75,7 +75,9 @@
               >
             </li>
             <li class="mb8">
-              <a class="s-btn s-btn__muted w100 ta-left" href="/frontend/admission.html"
+              <a
+                class="s-btn s-btn__muted w100 ta-left"
+                href="/frontend/admission.html"
                 >Admissions</a
               >
             </li>
@@ -151,7 +153,7 @@
         >
           <!-- Table Section -->
           <table
-            class="s-table s-table__stripes"
+            class="s-table s-table__bx"
             aria-describedby="student-applications-heading"
           >
             <thead>
@@ -192,10 +194,14 @@
         aria-modal="true"
         aria-labelledby="modal-title"
       >
+        <!-- view applicant -->
         <div
-          class="modal-content ba bc-black-100 bar-md bg-white p8 wmx8 mx-auto"
+          class="modal-content ba bc-black-100 bar-md bg-white p8 wmx8 mx-auto" id="view-applicant-modal"
         >
-          <div class="d-flex jc-space-between ai-center mb24">
+          <div
+            class="d-flex jc-space-between ai-center mb24"
+            id=""
+          >
             <h4 class="fc-dark" id="modal-title">Applicant Details</h4>
             <button
               type="button"
@@ -212,8 +218,32 @@
             tabindex="0"
           ></div>
         </div>
+        <!-- logout modal -->
+        <div
+          class="logout-modal d-none ba bc-black-100 bar-md bg-white p8 wmx8 mx-auto"
+          id="logout-modal"
+        >
+          <h3 class="fc-dark ta-center">Oh no! you are leaving...</h3>
+          <p class="fc-light ta-center">Are you sure?</p>
+          <div class="d-flex jc-center ai-center g16">
+            <button
+              type="button"
+              id="no-logout"
+              class="s-btn s-btn__outlined s-btn__muted"
+            >
+              Nah, just kidding
+            </button>
+            <button
+              type="button"
+              id="yes-logout"
+              class="s-btn s-btn__filled s-btn__danger"
+            >
+              Yes, log me out
+            </button>
+          </div>
+        </div>
       </div>
-    </div>
+    </main>
     <style>
       .visually-hidden {
         position: absolute !important;

@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // reset on failed error
         form.reset();
       }
-    }, 5000);
+    }, 2000);
 
    
   });
