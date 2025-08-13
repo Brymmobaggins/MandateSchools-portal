@@ -4,7 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Mandate Portal - Login</title>
+    <title>Mandate Portal</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
       rel="stylesheet"
@@ -14,17 +14,17 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="/css/custom.css" />
-    <script defer src="/js/header.js"></script>
-    <script defer src="js/login.js"></script>
+    <link rel="stylesheet" href="./css/custom.css" />
+    <script defer src="./js/header.js"></script>
+    <script defer src="./js/login.js"></script>
   </head>
   <body class="d-flex fd-column bg-gradien ff-roboto">
     <header class="bg-white p16 bb bc-black-075">
       <div class="d-flex ai-center jc-space-between">
         <!-- Logo + Title -->
-        <div class="d-flex ai-center g8">
-          <img src="/assests/mandate-logo.png" alt="Mandate Logo" height="48" />
-          <span class="fs-body4 fw-bold">Mandate Portal</span>
+        <div class="d-flex fd-column ai-center g6">
+          <img src="/assests/mandate-logo.png" alt="Mandate logo" height="48" />
+          <span class="fs-heading1 fw-bold">Mandate Portal</span>
         </div>
 
         <!-- Hamburger Button (only visible on small screens) -->
@@ -52,22 +52,22 @@
         </button>
 
         <!-- Desktop Navigation -->
-        <nav class="nav-desktop d-none d-lg-flex ai-center g24">
-          <a href="login.html" class="fc-dark s-link">Sign in</a>
+        <nav class="nav-desktop d-none d-lg-flex ai-center g24" role="navigation">
+          <a href="choose-portal.html" class="fc-dark s-link">Sign in</a>
           <a
-            href="/choose-portal.html"
-            class="s-btn s-btn__md fc-white bg-black-600"
+            href="choose-portal.html"
+            class="s-btn s-btn__md fc-white bg-black-600 ff-roboto"
             >Get Started</a
           >
         </nav>
       </div>
 
       <!-- Mobile Navigation -->
-      <nav id="mobileNav" class="d-none fd-column g16 mt8 fc-dark">
+      <nav id="mobileNav" class="d-none d-flex fd-column g16 mt16 fc-dark ff-inherit" role="navigation">
         <a href="index.html" class="fc-dark fw-bold s-btn s-btn__link ta-left"
           >Sign In</a
         >
-        <a href="login.html" class="fc-dark fw-bold s-btn s-btn__link ta-left"
+        <a href="login.html" class="fc-white fw-bold s-btn s-btn__link ta-left bg-black-600 p4 w20 bar-sm" style="text-wrap: nowrap;"
           >Get Started</a
         >
       </nav>

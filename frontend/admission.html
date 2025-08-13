@@ -10,9 +10,9 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@stackoverflow/stacks/dist/css/stacks.min.css"
     />
-    <link rel="stylesheet" href="/css/custom.css" />
-    <script src="/js/header.js"></script>
-    <script defer src="/js/admission.js"></script>
+    <link rel="stylesheet" href="../frontend/css/custom.css" />
+    <script src="../frontend/js/header.js"></script>
+    <script defer src="../frontend/js/admission.js"></script>
   </head>
   <body class="d-flex fd-column">
     <header class="bg-white p16 bc-black-075">
@@ -48,14 +48,21 @@
         </button>
 
         <!-- Desktop Navigation -->
-        <nav class="nav-desktop d-none d-lg-flex ai-center g16">
+        <nav
+          class="nav-desktop d-none d-lg-flex ai-center g16"
+          role="navigation" aria-label="main navigation"
+        >
           <a href="index.html" class="s-btn fc-white bg-orange-400">Home</a>
           <a href="login.html" class="fc-dark s-link">Login</a>
         </nav>
       </div>
 
       <!-- Mobile Navigation -->
-      <nav id="mobileNav" class="d-none fd-column g16 mt8 fc-dark">
+      <nav
+        id="mobileNav"
+        class="d-none fd-column g16 mt8 fc-dark"
+        role="navigation" aria-label="main navigation"
+      >
         <a href="index.html" class="fc-dark fw-bold s-btn s-btn__link ta-left"
           >Home</a
         >
@@ -222,7 +229,7 @@
             </div>
 
             <!-- This is where the error will be inserted -->
-            <p class="fs-caption fc-red-500 mt4 error-message d-none"></p>
+            <p class="fs-caption fc-red-500 mt4 error-message d-none" role="alert"></p>
           </div>
 
           <button class="s-btn s-btn__filled" type="submit">

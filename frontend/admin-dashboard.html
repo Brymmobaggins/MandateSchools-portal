@@ -1,0 +1,228 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mandate Admin Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@stackoverflow/stacks/dist/css/stacks.min.css"
+    />
+    <link rel="stylesheet" href="./css/custom.css" />
+    <script defer src="./js/admin-dashboard.js"></script>
+    <script defer src="./js/theme.js"></script>
+  </head>
+  <body class="bg-black-025 ff-sans">
+    <!-- Top Navigation -->
+    <header class="bg-white p16 bc-black-075" role="banner">
+      <div class="d-flex ai-center jc-space-between">
+        <!-- Logo + Title -->
+        <div class="d-flex ai-center g8">
+          <img src="/assests/mandate-logo.png" alt="Mandate Logo" height="36" />
+          <span class="fs-body3 fw-bold" aria-label="Mandate Portal"
+            >Mandate Portal</span
+          >
+        </div>
+
+        <!-- Desktop Navigation -->
+        <nav aria-label="User actions">
+          <div class="d-flex ai-center g8">
+            <button
+              type="button"
+              id="log-out"
+              class="s-btn s-btn__danger s-btn__outlined ff-sans lh-md"
+              aria-label="Logout"
+            >
+              Logout
+            </button>
+            <button
+              type="button"
+              class="s-btn s-btn__muted"
+              id="toggle-button"
+              aria-label="Toggle theme"
+            >
+              <span id="theme-icon" aria-hidden="true"> 🌙</span>
+            </button>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Layout -->
+    <div class="d-flex">
+      <!-- Sidebar -->
+      <aside
+        class="sidebar p16 bg-white w200 bs-sm"
+        role="complementary"
+        aria-label="Sidebar navigation"
+      >
+        <nav role="navigation" aria-label="Main menu">
+          <ul class="list-reset">
+            <li class="mb8">
+              <a
+                class="s-btn s-btn__muted w100 ta-left"
+                href="/admin-dashboard.html"
+                >Dashboard</a
+              >
+            </li>
+            <li class="mb8">
+              <a
+                class="s-btn s-btn__muted w100 ta-left"
+                href="/admin-dashboard.html"
+                >Manage Students</a
+              >
+            </li>
+            <li class="mb8">
+              <a class="s-btn s-btn__muted w100 ta-left" href="/frontend/admission.html"
+                >Admissions</a
+              >
+            </li>
+            <li class="mb8">
+              <a
+                class="s-btn s-btn__muted w100 ta-left"
+                href="/admin-dashboard.html"
+                >Results</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- Dashboard Content -->
+      <main class="p32 flex-grow-1" role="main">
+        <div class="d-flex jc-space-between ai-center fd-row p16">
+          <h1 id="student-applications-heading">Student Applications</h1>
+          <form
+            class="d-flex ai-center g8"
+            role="search"
+            aria-label="Search applications"
+            autocomplete="off"
+          >
+            <label for="search-input" class="visually-hidden"
+              >Search by name, email or class</label
+            >
+            <input
+              class="s-input s-input__md"
+              id="search-input"
+              name="fullName"
+              type="text"
+              placeholder="Search by name, email or class"
+              aria-describedby="student-applications-heading"
+            />
+            <label for="status-filter" class="visually-hidden"
+              >Filter by status</label
+            >
+            <div class="s-select s-select__md">
+              <select
+                id="status-filter"
+                class="ff-sans"
+                aria-label="Filter by status"
+              >
+                <option value="All" selected>All Statuses</option>
+                <option value="Approved">Approved</option>
+                <option value="Rejected">Rejected</option>
+                <option value="Pending">Pending</option>
+              </select>
+            </div>
+            <button
+              type="button"
+              id="export-csv"
+              class="s-btn__sm s-btn s-btn__filled s-btn__featured"
+              aria-label="Export applications as CSV"
+            >
+              Export Applications as CSV
+            </button>
+            <button
+              type="button"
+              id="export-pdf"
+              class="s-btn__sm s-btn s-btn__filled s-btn__featured"
+              aria-label="Export applications as PDF"
+            >
+              Export Application as PDF
+            </button>
+          </form>
+        </div>
+        <div
+          class="overflow-x-auto s-table-container"
+          tabindex="0"
+          aria-label="Student applications table"
+        >
+          <!-- Table Section -->
+          <table
+            class="s-table s-table__stripes"
+            aria-describedby="student-applications-heading"
+          >
+            <thead>
+              <tr>
+                <th scope="col" class="sortable" data-column="fullName">
+                  Full Name
+                </th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col" class="sortable" data-column="DOB">DOB</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Address</th>
+                <th scope="col">Previous School</th>
+                <th scope="col">Class Applying for</th>
+                <th scope="col" class="sortable" data-column="status">
+                  Status
+                </th>
+              </tr>
+            </thead>
+
+            <tbody id="studentsTableBody">
+              <!-- JS will populate rows here -->
+            </tbody>
+          </table>
+        </div>
+        <!-- <div id="pagination-controls" class="mt16 ta-center">
+          <button type="button" id="prev-page">Previous</button>
+          <span id="page-indicator">Page 1 of X</span>
+          <button type="button" id="next-page" class="">Next</button>
+        </div> -->
+      </main>
+
+      <!-- View Details Modal -->
+      <div
+        id="view-modal"
+        class="d-none modal-overlay"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+      >
+        <div
+          class="modal-content ba bc-black-100 bar-md bg-white p8 wmx8 mx-auto"
+        >
+          <div class="d-flex jc-space-between ai-center mb24">
+            <h4 class="fc-dark" id="modal-title">Applicant Details</h4>
+            <button
+              type="button"
+              id="closeModal"
+              class="fc-dark s-btn s-btn__danger"
+              aria-label="Close details modal"
+            >
+              X
+            </button>
+          </div>
+          <div
+            id="studentDetailsContainer"
+            class="fs-body2 d-flex fd-column ff-sans"
+            tabindex="0"
+          ></div>
+        </div>
+      </div>
+    </div>
+    <style>
+      .visually-hidden {
+        position: absolute !important;
+        height: 1px;
+        width: 1px;
+        overflow: hidden;
+        clip: rect(1px, 1px, 1px, 1px);
+        white-space: nowrap;
+      }
+    </style>
+  </body>
+</html>

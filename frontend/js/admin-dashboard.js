@@ -183,9 +183,9 @@ document.addEventListener("DOMContentLoaded", () => {
         <td>${app.phoneNumber}</td>
         <td>${app.DOB}</td>
         <td>${app.gender}</td>
+        <td>${app.address}</td>
         <td>${app.previousSchool}</td>
         <td>${app.classApplyingfor}</td>
-        <td>${app.fullName}</td>
         <td>
           <span class="s-tag ${getStatusClass(app.status)}">
             ${app.status || "Pending"}

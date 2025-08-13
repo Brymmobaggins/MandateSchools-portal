@@ -15,16 +15,16 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="css/custom.css" />
-    <script defer src="/js/header.js"></script>
-    <script defer src="/js/login.js"></script>
+    <link rel="stylesheet" href="./css/custom.css" />
+    <script defer src="./js/header.js"></script>
+    <script defer src="./js/login.js"></script>
   </head>
 
   <body>
     <header class="bg-white p16 bb bc-black-300">
       <div class="d-flex ai-center jc-space-between">
         <!-- Logo + Title -->
-        <div class="d-flex ai-center g8">
+        <div class="d-flex fd-column ai-center g8">
           <img src="/assests/mandate-logo.png" alt="Mandate Logo" height="36" />
           <span class="fs-body3 fw-bold">Mandate Portal</span>
         </div>
@@ -54,8 +54,8 @@
         </button>
 
         <!-- Desktop Navigation -->
-        <nav class="nav-desktop d-none d-lg-flex ai-center g12">
-          <a href="/choose-portal.html" class="s-btn s-btn__link"
+        <nav class="nav-desktop d-none d-lg-flex ai-center g12" role="navigation">
+          <a href="./choose-portal.html" class="s-btn s-btn__link"
             >← Back to role selection</a
           >
           <!-- <a href="login.html" class="s-btn s-btn__link">Login</a> -->
@@ -63,11 +63,11 @@
       </div>
 
       <!-- Mobile Navigation -->
-      <nav id="mobileNav" class="d-none fd-column g8 mt8">
+      <nav id="mobileNav" class="d-none fd-column g8 mt8" role="navigation">
         <a href="index.html" class="s-btn s-btn__link ta-left ff-inherit"
           >Home</a
         >
-        <a href="login.html" class="s-btn s-btn__link ta-left">Login</a>
+        <a href="login.html" class="s-btn s-btn__link ta-left">Login</a> 
       </nav>
     </header>
 
@@ -77,10 +77,8 @@
     >
       <div
         id="spinner"
-        class="d-flex fd-row jc-space-between d-none is-loading fc-dark"
-      >
-        
-      </div>
+        class="d-flex fd-row jc-space-between d-none fc-dark is-loading fs-headline2"
+      ></div>
 
       <div
         class="s-card w100 p16 bg-white bs-sm"
@@ -98,7 +96,8 @@
           <!-- Email -->
 
           <p
-            id="error-div" role="alert"
+            id="error-div"
+            role="alert"
             class="s-notice fc-error s-notice__danger d-none"
             style="word-wrap: initial; padding: 8px"
           ></p>

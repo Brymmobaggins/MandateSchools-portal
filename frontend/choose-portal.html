@@ -10,15 +10,15 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@stackoverflow/stacks/dist/css/stacks.min.css"
     />
-    <link rel="stylesheet" href="/css/custom.css" />
-    <script defer src="/js/header.js"></script>
-    <script defer src="js/login.js"></script>
+    <link rel="stylesheet" href="./css/custom.css" />
+    <script defer src="./js/header.js"></script>
+    <script defer src="./js/login.js"></script>
   </head>
   <body class="d-flex fd-column bg-gradien ff-roboto">
     <header class="bg-white p16 bb bc-black-075">
       <div class="d-flex ai-center jc-space-between">
         <!-- Logo + Title -->
-        <div class="d-flex ai-center g8">
+        <div class="d-flex fd-column ai-center g8">
           <img src="/assests/mandate-logo.png" alt="Mandate Logo" height="48" />
           <span class="fs-body4 fw-bold">Mandate Portal</span>
         </div>
@@ -48,18 +48,30 @@
         </button>
 
         <!-- Desktop Navigation -->
-        <nav class="nav-desktop d-none d-lg-flex ai-center g24">
-          <a href="login.html" class="fc-dark s-link">Sign in</a>
+        <nav
+          class="nav-desktop d-none d-lg-flex ai-center g24"
+          role="navigation"
+        >
+          <a href="index.html" class="fc-dark s-link fw-semibold">Home</a>
         </nav>
       </div>
 
       <!-- Mobile Navigation -->
-      <nav id="mobileNav" class="d-none fd-column g16 mt8 fc-dark">
+      <nav
+        id="mobileNav"
+        class="d-none d-flex fd-column g16 mt8 ff-inherit fc-light"
+        role="navigation"
+        aria-label="main navigation"
+      >
         <a href="index.html" class="fc-dark fw-bold s-btn s-btn__link ta-left"
-          >Home</a
+          >Sign In</a
         >
         <a href="login.html" class="fc-dark fw-bold s-btn s-btn__link ta-left"
-          >Login</a
+          >About School</a
+        >
+
+        <a href="login.html" class="fc-dark fw-bold s-btn s-btn__link ta-left"
+          >Contact Us</a
         >
       </nav>
     </header>
@@ -158,7 +170,7 @@
               Monitor your ward's academic progress, view report cards, pay
               school fees and communicate with teachers.
             </p>
-            
+
             <ul style="text-align: initial">
               <li>Manage student and teacher accounts</li>
               <li>Oversee academic programs and schedules</li>
@@ -183,11 +195,7 @@
               <div class="mb12">
                 <div
                   class="bg-green-100 fc-green-500 p12 bar-sm d-inline-flex ai-center jc-center"
-                >
-                  <svg class="svg-icon iconPeople" width="24" height="24">
-                    <use xlink:href="#iconPeople"></use>
-                  </svg>
-                </div>
+                ></div>
               </div>
               <h3 class="fs-subheading fw-bold">Collaborative Learning</h3>
               <p class="fs-body3 fw-normal">
