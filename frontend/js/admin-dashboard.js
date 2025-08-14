@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const studentDetailsContainer = document.getElementById(
     "studentDetailsContainer"
   );
-  const viewModal = document.getElementById("view-modal");
+  const modalOverlay = document.getElementById("modal-overlay");
   const closeModalBtn = document.getElementById("closeModal");
   const exportCSVButton = document.getElementById("export-csv");
   const exportPDFButton = document.getElementById("export-pdf");
@@ -56,26 +56,32 @@ document.addEventListener("DOMContentLoaded", () => {
   const yesLogoutBtn = document.getElementById("yes-logout");
   const noLogoutBtn = document.getElementById("no-logout");
   const logoutModal = document.getElementById("logout-modal");
+  const applicantContent = document.getElementById("view-applicant");
 
   logoutBtn.addEventListener("click", () => {
-    if (viewModal) {
-      viewModal.classList.remove("d-none");
-      document.getElementById("view-applicant-modal").classList.add("d-none");
-      logoutModal.classList.remove("d-none");
-    }
+    modalOverlay.classList.remove("d-none");
+    applicantContent.classList.add("d-none");
+    logoutModal.classList.remove("d-none");
   });
-  document.getElementById("view-applicant-modal").classList.remove("d-none");
-  // yesLogoutBtn.addEventListener("click", () => {
-  //   localStorage.removeItem("loggedInUser");
-  //   window.location.href = "index.html";
-  // });
+
   noLogoutBtn.addEventListener("click", () => {
-    if (viewModal) {
-      viewModal.classList.add("d-none");
-    } else {
-      document.getElementById("view-applicant-modal").classList.add("d-none");
-    }
+    modalOverlay.classList.add("d-none");
+    applicantContent.classList.remove("d-none");
   });
+
+   yesLogoutBtn.addEventListener("click", () => {
+    modalOverlay.classList.add("d-none");
+    applicantContent.classList.remove("d-none");
+    localStorage.removeItem("loggedInUser")
+    window.location.href = "index.html"
+
+  });
+
+  // modalOverlay.classList.add("d-none");
+  // applicantContent.classList.add("d-none");
+
+
+
 
   exportPDFButton.addEventListener("click", () => {
     const searchValue = searchInput.value.toLowerCase();
@@ -247,7 +253,7 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
     `;
 
-    viewModal.classList.remove("d-none");
+    modalOverlay.classList.remove("d-none");
     logoutModal.classList.add("d-none");
 
     // Add click handlers for approval/rejection
@@ -263,12 +269,12 @@ document.addEventListener("DOMContentLoaded", () => {
     applications[index].status = status;
     localStorage.setItem("admissionApplication", JSON.stringify(applications));
     renderApplications(applications);
-    viewModal.classList.add("d-none");
+    modalOverlay.classList.add("d-none");
   }
 
   // ✅ Hide modal on close
   closeModalBtn.addEventListener("click", () => {
-    viewModal.classList.add("d-none");
+    modalOverlay.classList.add("d-none");
   });
 
   // ✅ Filter when dropdown changes
