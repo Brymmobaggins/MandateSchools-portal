@@ -153,11 +153,14 @@
         >
           <!-- Table Section -->
           <table
-            class="s-table s-table__bx"
+            class="s-table s-table__by"
             aria-describedby="student-applications-heading"
           >
             <thead>
-              <tr>
+              <tr class="fs-body2 fc-dark ff-inherit">
+                <th>
+                  <input type="checkbox" name="" id="selectAll" />
+                </th>
                 <th scope="col" class="sortable" data-column="fullName">
                   Full Name
                 </th>
@@ -195,22 +198,24 @@
         aria-labelledby="modal-title"
       >
         <!-- view applicant -->
+
         <div
-          class="view-applicant-content ba bc-black-100 bar-md bg-white p8 wmx8 mx-auto" id="view-applicant"
+          class="view-applicant-content ba bc-black-100 bar-md bg-white p16 wmx8 mx-auto"
+          id="view-applicant"
         >
-          <div
-            class="d-flex jc-space-between ai-center mb24"
-            id=""
-          >
-            <h4 class="fc-dark" id="modal-title">Applicant Details</h4>
-            <button
+          <div class="d-flex jc-space-between jc-center mb16" id="">
+            <p class="fc-dark fw-bold fs-body3 ff-inherit" id="modal-title">
+              Applicant Details
+            </p>
+
+            <span
               type="button"
               id="closeModal"
-              class="fc-dark s-btn s-btn__danger"
+              class="fc-dark fw-bold"
               aria-label="Close details modal"
             >
               X
-            </button>
+            </span>
           </div>
           <div
             id="studentDetailsContainer"

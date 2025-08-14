@@ -77,8 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   });
 
-  // modalOverlay.classList.add("d-none");
-  // applicantContent.classList.add("d-none");
+ 
 
 
 
@@ -206,7 +205,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <td>${app.phoneNumber}</td>
         <td>${app.DOB}</td>
         <td>${app.gender}</td>
-        <t>${app.address}</t>
+        <td>${app.address}</td>
         <td>${app.previousSchool}</td>
         <td>${app.classApplyingfor}</td>
         <td>
@@ -248,8 +247,8 @@ document.addEventListener("DOMContentLoaded", () => {
       <p><strong>Class Applying for:</strong> ${app.classApplyingfor}</p>
 
       <div class="d-flex mt8 g8">
-        <button class="s-btn s-btn__filled s-btn__success" id="approve-btn">Approve</button>
-        <button class="s-btn s-btn__outlined s-btn__danger" id="reject-btn">Reject</button>
+        <button class="s-btn s-btn__filled bg-success" id="approve-btn">Approve Application</button>
+        <button class="s-btn s-btn__filled s-btn__danger" id="reject-btn">Reject Application</button>
       </div>
     `;
 
